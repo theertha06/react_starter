@@ -1,0 +1,52 @@
+ table {
+     border-spacing: 0;
+     border-collapse: collapse;
+     background: $white-color;
+     @include border-radius(8px);
+     overflow: hidden;
+     width: 100%;
+     margin: 0 auto;
+     position: relative;
+     * {
+         position: relative
+     }
+     td,
+     th {
+         padding-left: 8px
+     }
+     thead {
+         margin: 0;
+         tr {
+             padding: 0;
+             th {
+                 font-size: 13px;
+                 background-color: $medium-green !important;
+                 border-color: $login-bg !important;
+                 text-align: center;
+                 font-weight: $font-bold;
+                 &:first-child {
+                     text-align: left;
+                 }
+             }
+         }
+     }
+     tbody {
+         margin: 0;
+         tr {
+             margin: 0;
+             &:last-child {
+                 border: 0;
+             }
+             &:nth-child(even) {
+                 background-color: $light-green;
+             }
+             td {
+                 border-color: $login-bg !important;
+                 text-align: center;
+                 &:first-child {
+                     text-align: left;
+                 }
+             }
+         }
+     }
+ }

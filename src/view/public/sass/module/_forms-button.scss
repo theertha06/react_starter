@@ -1,0 +1,90 @@
+.login-block {
+    padding: 0;
+    .form-control {
+        padding: 0px 10px;
+        border: $login-border solid 1px;
+        line-height: 30px;
+        height: 30px;
+        @include border-radius(6px);
+        @include box-sizing(border-box);
+        @include transition(all .3s ease);
+        box-shadow: none;
+        &:focus {
+            box-shadow: none;
+            border-color: $primary-color;
+            @include transition(all .3s ease);
+        }
+    }
+    .btn {
+        padding: 0px 10px;
+        line-height: 29px;
+        min-width: auto;
+        height: 30px;
+        border: 0px;
+        @include border-radius(6px);
+        @include transition(all .3s ease);
+        font-weight: $font-bold;
+    }
+    .btn-warning {
+        background: $yellow-btn;
+        color: $yellow-btn-color;
+        &:hover,
+        &:focus {
+            background: $yellow-btn;
+            color: $yellow-btn-color;
+        }
+    }
+    .btn-success {
+        background: $green-btn;
+        color: $white-color;
+        &:hover,
+        &:focus {
+            background: $green-btn;
+            color: $white-color;
+        }
+    }
+    .forget-password {
+        display: inline-block;
+        margin-left: 8px;
+        vertical-align: top;
+        line-height: 30px;
+        color: $primary-color;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
+
+input[type=date] {
+    &::-webkit-inner-spin-button {
+        margin: 10px;
+    }
+}
+
+.selectfeild {
+    @include appearance(none);
+    position: relative;
+    padding-right: 40px;
+    background-image: url(../img/select-arrow.png);
+    background-position: 94% center;
+    background-repeat: no-repeat;
+}
+
+.edit-list {
+    display: block;
+    .form-control {
+        height: 24px;
+        @include border-radius(6px);
+    }
+    .edit-footer {
+        display: block;
+        .btn {
+            line-height: 26px;
+            padding: 0px 15px;
+            &:before {
+                content: '';
+                height: 28px;
+            }
+        }
+    }
+}

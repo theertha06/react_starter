@@ -1,0 +1,59 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900);
+$font-stack: 'Lato',
+sans-serif;
+$font-thin:100;
+$font-light:300;
+$font-normal:400;
+$font-bold: 700;
+$font-black: 900;
+
+/*---------primary variable-----------*/
+
+$login-bg:#e8f5f1;
+$text-color: #616161;
+$black-color: #000000;
+$white-color: #ffffff;
+$body-bg-color: #f3f4f7;
+$primary-color: #2bb388;
+$gray-color:#f3f3f3;
+$light-gray:#fbfcfb;
+$dark-gray:#616161;
+$hover-gray:#eaf5f2;
+$medium-gray:#c5c5c5;
+$tab-text:#415171;
+$tab-bg:#f9f9f9;
+$main-tab:#bbc2cc;
+$label-gray:#c5c5c5;
+$sub-tab-color:#b5b9bd;
+$heading-one:#747474;
+$heading-two:#3096c1;
+$event-blue:#2b83b3;
+$event-gray:#8a8a8a;
+$heading-three:#536660;
+$light-green: #f2f7f4;
+$medium-green:#e2efe7;
+$whitish-green:#f6f8f7;
+$yellow-btn:#ffcb05;
+$yellow-btn-color:#5d5422;
+$green-btn:#2bb388;
+$dark-green:#28a880;
+$red-color:#ec6868;
+$yellow-color:#ec900d;
+$login-border:#d5f1e8;
+$form-border:#979797;
+
+/*---------Events-----------*/
+
+$header-border: #0c936a;
+$alert-danger: #fa3e3e;
+$black-overlay: rgba(0, 0, 0, 0.70);
+$select-padding:0.375rem 0;
+$size-full:100%;
+
+/*---------/.Events-----------*/
+
+$smartphone: 480px;
+$tabletPortrait: 767px;
+$tabletLandscape: 1024px;
+$desktop: 1174px;
+$largeScreen: 1400px;

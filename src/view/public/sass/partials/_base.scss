@@ -1,0 +1,56 @@
+/*
+*
+*INSPORTS WEB SITE
+*version 1.0
+*factweavers.com
+*ui design by jagadeeshlal
+*/
+
+body {
+    color: #3d4347;
+    background: #f4f8f9;
+    font-size: 0.8125rem;
+    font-family: $font-stack;
+    overflow-x: hidden;
+}
+
+img {
+    display: inline-block;
+    max-width: 100%;
+}
+
+a {
+    color: $primary-color;
+    &:hover,
+    &:focus {
+        color: $dark-green;
+        outline: 0px;
+        text-decoration: none;
+    }
+}
+
+p {
+    line-height: 1.175rem;
+}
+
+.main-wrapper {
+    padding-top: 70px;
+    @include box-sizing(border-box);
+    @include transition(all .3s ease);
+    @include respond-to($tablet-portrait) {
+        padding-top: 122px;
+    }
+}
+
+.main-content {
+    display: block;
+    margin-top: 20px;
+    padding: 0;
+    .row {
+        margin: 0px -0.625rem;
+    }
+    [class^="col-"] {
+        padding-left: 0.625rem;
+        padding-right: 0.625rem;
+    }
+}

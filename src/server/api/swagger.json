@@ -1,0 +1,78 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "0.0.1",
+    "title": "News Search"
+  },
+  "host": "localhost:4000",
+  "basePath": "/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/insert": {
+      "x-swagger-router-controller": "insertController",
+      "post": {
+        "description": "insert",
+        "operationId": "insert",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "document",
+            "in": "body",
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SearchResponse"
+            }
+          },
+          "500": {
+            "description": "Error",
+            "schema": {
+              "$ref": "#/definitions/ErrorResponse"
+            }
+          }}}}
+  },
+  "definitions": {
+    "SearchResponse": {
+      "type": "object",
+      "properties": {
+        "SearchResultMessage": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "SearchResultMessage"
+      ]
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "required": [
+        "failure reason"
+      ],
+      "properties": {
+        "failure reason": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
