@@ -15,7 +15,7 @@ getDetailsAction.prototype={
             $.ajax({
                 
                 // url: 'http://localhost:9200/test/_doc/'+query,
-                url: `http://localhost:9200/test/_doc/${query}`,
+                url: `http://45.63.6.145:9933/test/_doc/${query}`,
                 type: 'GET',
                 dataType: 'JSON',
                 contentType: "application/json; charset=utf-8",

@@ -1,6 +1,6 @@
 var elasticsearch = require('elasticsearch');
 var client = new elasticsearch.Client({
-	host: 'http://localhost:9200/'
+	host: 'http://45.63.6.145:9933/'
 });
 const crypto = require('crypto');
 module.exports = {

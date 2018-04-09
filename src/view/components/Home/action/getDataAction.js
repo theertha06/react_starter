@@ -14,7 +14,7 @@ getDataAction.prototype = {
 			});
 
 		    $.ajax({
-					url: 'http://localhost:9200/_search',
+					url: 'http://45.63.6.145:9933/_search',
 					type: 'POST',
 					dataType: 'JSON',
 					contentType: "application/json; charset=utf-8",

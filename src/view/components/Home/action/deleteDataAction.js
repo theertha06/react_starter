@@ -20,7 +20,7 @@ deleteData:function(id){
         actionType:Constants.LOADING
     });
     $.ajax({
-        url: 'http://localhost:9200/test/_delete_by_query?refresh',
+        url: 'http://45.63.6.145:9933/test/_delete_by_query?refresh',
         type: 'POST',
         dataType: 'JSON',
         contentType: "application/json; charset=utf-8",
