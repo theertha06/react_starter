@@ -8,10 +8,15 @@ var session = require('express-session');
 var bodyParser=require('body-parser');
 var path = require('path');
 
+var config = require('./config')
+
 var isDeveloping = process.env.NODE_ENV != 'production';
 console.log("IS developing ",isDeveloping);
 
-var serverPort = 8000;
+
+
+
+var serverPort = config.serverPort;
 
 // swaggerRouter configuration
 var options = {

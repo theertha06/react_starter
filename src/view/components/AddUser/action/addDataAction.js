@@ -1,6 +1,6 @@
 import AppDispatcher from 'dispatcher/dispatcher';
 import Constants from '../constants/constants';
-import config from 'utils/config'
+import config from '../../../../../config'
 
 var addDataAction = function(){
 
@@ -13,7 +13,7 @@ addData:function(valueMap){
         actionType:Constants.LOADING
     });
     $.ajax({
-        url: 'http://localhost:8000/insert',
+        url: config.serverHost+':'+config.serverPort+'/insert',
         type: 'POST',
         dataType: 'JSON',
         contentType: "application/json; charset=utf-8",

@@ -1,6 +1,6 @@
 import AppDispatcher from 'dispatcher/dispatcher';
 import Constants from '../constants/constants';
-import config from 'utils/config'
+import config from '../../../../../config'
 
 var deleteDataAction = function(){
 
@@ -20,7 +20,8 @@ deleteData:function(id){
         actionType:Constants.LOADING
     });
     $.ajax({
-        url: 'http://45.63.6.145:9933/test/_delete_by_query?refresh',
+        // url: 'http://45.63.6.145:9933/test/_delete_by_query?refresh',
+        url: config.esHost+':'+config.esPort+'/test/_delete_by_query?refresh',
         type: 'POST',
         dataType: 'JSON',
         contentType: "application/json; charset=utf-8",

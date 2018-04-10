@@ -1,6 +1,6 @@
 import AppDispatcher from 'dispatcher/dispatcher';
 import Constants from '../constants/constants';
-import config from 'utils/config'
+import config from '../../../../../config'
 
 var getSingleDataAction = function(){
 

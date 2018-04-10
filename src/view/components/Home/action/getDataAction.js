@@ -1,6 +1,6 @@
 import AppDispatcher from 'dispatcher/dispatcher';
 import Constants from '../constants/constants';
-import config from 'utils/config'
+import config from '../../../../../config'
 
 var getDataAction = function(){
 
@@ -14,7 +14,8 @@ getDataAction.prototype = {
 			});
 
 		    $.ajax({
-					url: 'http://45.63.6.145:9933/_search',
+					// url: 'http://45.63.6.145:9933/_search',
+					url: config.esHost+':'+config.esPort+'/users/_search',
 					type: 'POST',
 					dataType: 'JSON',
 					contentType: "application/json; charset=utf-8",

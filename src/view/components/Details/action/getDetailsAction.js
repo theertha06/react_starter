@@ -1,6 +1,6 @@
 import AppDispatcher from 'dispatcher/dispatcher';
 import Constants from '../constants/constants';
-import config from 'utils/config';
+import config from '../../../../../config';
 
 var getDetailsAction=function(){
 
@@ -15,7 +15,8 @@ getDetailsAction.prototype={
             $.ajax({
                 
                 // url: 'http://localhost:9200/test/_doc/'+query,
-                url: `http://45.63.6.145:9933/test/_doc/${query}`,
+                // url: `http://45.63.6.145:9933/test/_doc/${query}`,
+                url: config.esHost+':'+config.esPort+`/${config.indexNames.users}/doc/${query}`,
                 type: 'GET',
                 dataType: 'JSON',
                 contentType: "application/json; charset=utf-8",
