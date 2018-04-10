@@ -121,6 +121,11 @@ componentWillUnmount(){
         this.setState({
             visible: false,
           });
+          
+          setTimeout(()=>{
+            getDataAction.getData(this.buildQuery(this.state.current,this.state.pageSize));
+        },500)
+        //   hashHistory.push("/home") 
      }
 
      handleCancel(){
