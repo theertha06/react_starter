@@ -21,7 +21,7 @@ deleteData:function(id){
     });
     $.ajax({
         // url: 'http://45.63.6.145:9933/test/_delete_by_query?refresh',
-        url: config.esHost+':'+config.esPort+'/test/_delete_by_query?refresh',
+        url: config.esHost+':'+config.esPort+'/'+config.indexNames.users+'/_delete_by_query?refresh',
         type: 'POST',
         dataType: 'JSON',
         contentType: "application/json; charset=utf-8",
