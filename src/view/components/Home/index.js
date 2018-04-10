@@ -7,6 +7,8 @@ import getDataError from './store/getDataError';
 import loadingStore from './store/loadingStore';
 import deleteDataStore from './store/deleteDataStore';
 
+import { Spin } from 'antd';
+
 import { Link } from 'react-router'
 
 import Table from '../Table';
@@ -96,7 +98,9 @@ componentWillUnmount(){
     render(){
         if(this.state.isLoading){
             return(
-                <div>Loading....</div>
+                <div>
+                    {ReactDOM.render(<Spin />, mountNode)}
+                    </div>
             )
         }
         // if(!this.state.users.users.length){
@@ -115,7 +119,7 @@ componentWillUnmount(){
             <div className="container">
             <div className="card">
             <div className="card-header">
-            <h1 className='text-center'><u>ADD USER</u></h1>
+            <h1 className='text-center'><u>USER</u></h1>
             <div className="pull-right">
             <Link to={'adduser'}><button>add user</button></Link>
             </div>
