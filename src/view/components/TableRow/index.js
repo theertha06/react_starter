@@ -47,7 +47,7 @@ let Row = (props)=>{
                 {props.fieldConfig.map((item1,key1)=>item1.field=='remove'?null:<td key={key1}>
                         {
                             props.enableLink&&
-                            <Link to={'details/'+props.item._id}>
+                            <Link className='Link' to={'details/'+props.item._id}>
                                     {props.item[item1.field]}
                             </Link>
                         }

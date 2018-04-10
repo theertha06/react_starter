@@ -30,7 +30,7 @@ export default class Table extends React.Component{
 
 
             <div className="table-responsive">
-                <table className="table">
+                <table className="table table-striped font" >
                         <thead>
                             <Row 
                             fieldConfig={this.props.fieldConfig}

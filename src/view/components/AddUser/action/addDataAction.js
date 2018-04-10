@@ -9,9 +9,9 @@ var addDataAction = function(){
 addDataAction.prototype={
 
 addData:function(valueMap){
-    AppDispatcher.dispatch({
-        actionType:Constants.LOADING
-    });
+    // AppDispatcher.dispatch({
+    //     actionType:Constants.LOADING
+    // });
     $.ajax({
         url: config.serverHost+':'+config.serverPort+'/insert',
         type: 'POST',

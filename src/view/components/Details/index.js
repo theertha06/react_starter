@@ -7,6 +7,8 @@ import getDetailsAction from './action/getDetailsAction';
 import getDetailsStore from './store/getDetailsStore';
 import errorStore from '../Home/store/getDataError';
 import loadingStore from '../Home/store/loadingStore';
+import '../../components/index.css'
+import { Spin } from 'antd';
 
 import { Link } from 'react-router'
 
@@ -60,7 +62,14 @@ export default class Details extends React.Component{
         console.log('param',this.props.params.id)
         if(this.state.isLoading){
             return(
-                <div>Loading....</div>
+                <div>
+                <div className='example'>
+                    <Spin size='large'/>
+                </div>
+                <div className='font'>
+                    Loading............
+                </div>
+                </div>
             )
         }
         console.log('user',this.state.user)
@@ -70,12 +79,14 @@ export default class Details extends React.Component{
             { field:'last_name',label:'LAST_NAME'},
             { field:'email',label:'EMAIL_ID'},
             { field:'gender',label:'GENDER'},
+            { field:'address',label:'   ADDRESS'},
+            { field:'phone number',label:'PHONE'},
             { field:'ip_address',label:'IP_ADDRESS'}
 
 
     ]
         return(
-            <div>
+            <div className='container'>
                 <br></br>
                 
                 <br></br><br></br>
@@ -97,7 +108,7 @@ export default class Details extends React.Component{
                     </div>
                     <div className='container'>
                 <button className='pull-right'>              
-                    <Link  to='home'>BACK</Link></button>
+                    <Link className='Link' to='home'>&lt;&lt;back</Link></button>
                     </div>
             </div>
         )

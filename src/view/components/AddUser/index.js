@@ -4,6 +4,7 @@ import Item from 'antd/lib/list/Item';
 
 import _ from 'lodash';
 
+import { Input } from 'antd';
 
 import { hashHistory} from 'react-router'
 
@@ -12,6 +13,7 @@ import { hashHistory} from 'react-router'
 import addDataStore from './store/addDataStore';
 import errorStore from '../Home/store/getDataError';
  import loadingStore from '../Home/store/loadingStore';
+
 
 export default class AddUser extends React.Component{
 
@@ -43,9 +45,12 @@ export default class AddUser extends React.Component{
         }
     
         onResponse(){
-            hashHistory.push("/home")
+           // hashHistory.push("/home")
+           
+           this.props.handleOk()
+           
             this.setState({
-                users:addDataStore.getData(),
+              users:addDataStore.getData(),
                 isLoading:false
 
         });
@@ -61,6 +66,7 @@ handleChange(key,e){
 }
 
 onSubmit(){
+    
     let error = false;
 if(!_.keys(this.state.valueMap).length){
     error = true
@@ -85,14 +91,17 @@ render(){
         { field:'last_name',label:'LAST_NAME'},
         { field:'email',label:'EMAIL_ID'},
         { field:'gender',label:'GENDER'},
+        { field:'address',label:'   ADDRESS'},
+        { field:'phone number',label:'PHONE'},
         { field:'ip_address',label:'IP_ADDRESS'}
+        
     ]
 
 
 console.log(this.state.valueMap)
 
 return <div>
-    <div className='container'>
+    <div >
 	<div className="table-responsive">
     <h1 className='text-center'><u>ADD USER</u></h1>
     <table className="table">
@@ -112,7 +121,7 @@ return <div>
             
         </tbody>
     </table>
-    <button onClick={this.onSubmit}>SUBMIT</button>
+    <button onClick={this.onSubmit} className='pull-right' className='lmargin'>SUBMIT</button>
     {this.state.error&&<div>fill all fields</div>}
     </div>
     </div>
