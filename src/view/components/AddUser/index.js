@@ -2,9 +2,9 @@ import React from 'react'
 import Item from 'antd/lib/list/Item';
 
 
+
 import _ from 'lodash';
 
-import { Input } from 'antd';
 
 import { hashHistory} from 'react-router'
 
@@ -14,6 +14,9 @@ import addDataStore from './store/addDataStore';
 import errorStore from '../Home/store/getDataError';
  import loadingStore from '../Home/store/loadingStore';
 
+ import { Form, Icon, Input, Button } from 'antd';
+const FormItem = Form.Item;
+const { TextArea } = Input;
 
 export default class AddUser extends React.Component{
 
@@ -100,31 +103,34 @@ render(){
 
 console.log(this.state.valueMap)
 
-return <div style={{fontFamily:'Open Sans'}}>
-    <div >
+return <div >
+     <div >
 	<div className="table-responsive">
-    <h1 className='text-center'><u>ADD USER</u></h1>
+    <h3 className='text-center'><u>ADD USER</u></h3>
     <table className="table">
 
-        <tbody>
+        <tbody >
             {fieldConfig.map((item,key)=>
                <tr key={key} style={{background:'#bae7ff'}}><td>
-                {item.label}
-                </td>
-                <td>&nbsp; &nbsp;&nbsp; &nbsp;
-                        <input 
+                <b>{item.label}</b>
+                
+                        <TextArea placeholder={"enter "+item.field} autosize 
                             value={this.state[item.field]} 
                             onChange={this.handleChange.bind(this,item.field)}>
-                        </input>
+                        </TextArea>
                 </td>
                 </tr>)}
             
         </tbody>
     </table>
-    <button onClick={this.onSubmit} className='pull-right' className='lmargin'>SUBMIT</button>
-    {this.state.error&&<div>fill all fields</div>}
+    <div><center>
+    <Button type='primary'  onClick={this.onSubmit}  style={{background:'#bae7ff' , color:'black'}}>SUBMIT</Button>
+    {this.state.error&&<div>fill all fields</div>}</center></div>
     </div>
-    </div>
+    </div> 
+    
+    
+
 </div>
 
 }

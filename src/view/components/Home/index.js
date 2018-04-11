@@ -13,7 +13,7 @@ import AddUser from '../AddUser';
 
 import '../../components/index.css'
 
-import { Modal, Button } from 'antd';
+import { Modal, Button ,Icon} from 'antd';
 
 import { Spin } from 'antd';
 
@@ -160,18 +160,23 @@ componentWillUnmount(){
 
         return(
             <div className="container" style={{fontFamily:'Open Sans'}}>
-             <h2 className='text-center'>USER</h2>
+             <h3 className='text-center'>USER</h3>
             <div>
                      
             <div className="pull-right">
-            <button onClick={this.showModal}>add user</button>
+            
+            <Button type='primary'  className='pull-left' onClick={this.showModal}  style={{background:'#bae7ff' , color:'black'}}>
+            <Icon type="user-add" />add user
+                    </Button>
             <Modal
-            title="Add User"
+            
+            title='Add User'
           visible={this.state.visible}
           onOk={this.handleOk}
           onCancel={this.handleCancel}
           footer={<div>
-          <button onClick={this.handleCancel}>Cancel</button>
+          
+          <Button type='primary'  onClick={this.handleCancel}  style={{background:'#bae7ff' , color:'black'}}>cancel</Button>
           </div>}
         >
           <AddUser handleOk={this.handleOk}/>

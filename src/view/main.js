@@ -15,8 +15,8 @@ ReactDOM.render(
 			        <Redirect from="/" to="/mainFrame" />
 			        <Route path="/mainFrame" component={MainFrame}>
 						<IndexRoute component={Home}/>
-						<Route path="/home" component={Home}/>
-						<Route path="/details/:id" component={Details}/>
+						<Route path="/home" component={Home} tabKey={"home"}/>
+						<Route path="/details/:id" component={Details} tabKey={"details"}/>
 						<Route path="/adduser" component={AddUser}/>
 					</Route>
 		        </Router>

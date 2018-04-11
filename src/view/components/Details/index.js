@@ -8,7 +8,7 @@ import getDetailsStore from './store/getDetailsStore';
 import errorStore from '../Home/store/getDataError';
 import loadingStore from '../Home/store/loadingStore';
 import '../../components/index.css'
-import { Spin } from 'antd';
+import { Spin ,Button } from 'antd';
 
 import { Link } from 'react-router'
 
@@ -22,6 +22,7 @@ export default class Details extends React.Component{
         super(props);
         this.state = {
             isLoading:true,
+            
         }
         this.onLoading = this.onLoading.bind(this);
         this.onResponse = this.onResponse.bind(this);
@@ -86,24 +87,37 @@ export default class Details extends React.Component{
         return(
             <div className='container'>
                 <div className='container'>
-                <button className='pull-left'>              
-                    <Link className='Link' to='home'>&lt;&lt;back</Link></button>
+                
+                    <Button type='primary'  className='pull-left' onClick={this.onSubmit}  style={{background:'#bae7ff' , color:'black'}}>
+                    <Link className='Link' to='home'>&lt;&lt;back</Link></Button>
                     </div>
                 <br></br><br></br>
-                <h2 className='text-center'>USER DETAILS </h2>
-                <div className="table-responsive">
-                <table className="table table-striped">
-                    <thead>
+                <h3 className='text-center'>USER DETAILS </h3>
+                <div className="table-responsive"style={{maxWidth:'700px',marginLeft:'150px'}}>
+                <table className="table" style={{color:'black'}} >
+                <tbody>
+                {fieldConfig.map((item,key)=>
+                 <tr key={key} style={{background:'#bae7ff'}}><td><b><div className='pull-right'>{item.label}:</div>
+                </b>
+                </td>
+                <td style={{paddingRight:'70px',paddingLeft:'70px'}}>
+                 <div  className='pull-left'>   {this.state.user[item.field]}</div>
+                </td>
+                </tr>)}
+            
+                 </tbody>
+                {/* <table className="table table-striped">
+                    <td>
                     <Row 
                         fieldConfig={fieldConfig}
                         type='head'/>
-                    </thead>
-                    <tbody>
+                    </td>
+                    <td>
                     <Row 
                         fieldConfig={fieldConfig}
                         item={this.state.user}
                         type='body'/>
-                    </tbody>
+                    </td>*/}
                     </table>
                     </div>
                     
