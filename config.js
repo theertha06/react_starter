@@ -1,6 +1,6 @@
 module.exports = {
-    esHost:"http://localhost",
-    esPort:"9200",
+    esHost:"http://45.77.203.13",
+    esPort:"9255",
     serverHost:"http://localhost",
     serverPort:"8000",
     indexNames:{
