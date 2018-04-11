@@ -66,9 +66,7 @@ export default class Details extends React.Component{
                 <div className='example'>
                     <Spin size='large'/>
                 </div>
-                <div className='font'>
-                    Loading............
-                </div>
+                
                 </div>
             )
         }
