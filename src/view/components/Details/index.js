@@ -87,10 +87,12 @@ export default class Details extends React.Component{
     ]
         return(
             <div className='container'>
-                <br></br>
-                
+                <div className='container'>
+                <button className='pull-left'>              
+                    <Link className='Link' to='home'>&lt;&lt;back</Link></button>
+                    </div>
                 <br></br><br></br>
-                <h1 className='text-center'><u>USER DETAILS </u></h1>
+                <h2 className='text-center'>USER DETAILS </h2>
                 <div className="table-responsive">
                 <table className="table table-striped">
                     <thead>
@@ -106,10 +108,7 @@ export default class Details extends React.Component{
                     </tbody>
                     </table>
                     </div>
-                    <div className='container'>
-                <button className='pull-right'>              
-                    <Link className='Link' to='home'>&lt;&lt;back</Link></button>
-                    </div>
+                    
             </div>
         )
     }

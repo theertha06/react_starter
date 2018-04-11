@@ -100,7 +100,7 @@ render(){
 
 console.log(this.state.valueMap)
 
-return <div>
+return <div style={{fontFamily:'Open Sans'}}>
     <div >
 	<div className="table-responsive">
     <h1 className='text-center'><u>ADD USER</u></h1>
@@ -108,7 +108,7 @@ return <div>
 
         <tbody>
             {fieldConfig.map((item,key)=>
-               <tr key={key}><td>
+               <tr key={key} style={{background:'#bae7ff'}}><td>
                 {item.label}
                 </td>
                 <td>&nbsp; &nbsp;&nbsp; &nbsp;

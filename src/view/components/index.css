@@ -10,7 +10,7 @@
   }
 
   .Link{
-      color: black;
+      color: #595959;
   }
 
   .lmargin {
@@ -18,3 +18,15 @@
     
   }
   
+  .components-layout-demo-responsive .logo {
+    height: 32px;
+    background: rgba(255,255,255,.2);
+    margin: 16px;
+  }
+  
+  .table__row_body:nth-child(even) {
+    background-color: darkgrey;
+}
+.table__row_body:nth-child(odd) {
+    background-color: lightgrey;
+}

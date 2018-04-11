@@ -29,7 +29,7 @@ constructor(props){
     super(props);
     this.state = {
         isLoading:true,
-        pageSize:6,
+        pageSize:7,
         current:1,
         ModalText: 'Content of the modal',
         visible: false,
@@ -159,14 +159,14 @@ componentWillUnmount(){
         ]
 
         return(
-            <div className="container">
-             <h1 className='text-center'><u>USER</u></h1>
-            <div className="card">
-            <div className="card-header">
-           
+            <div className="container" style={{fontFamily:'Open Sans'}}>
+             <h2 className='text-center'>USER</h2>
+            <div>
+                     
             <div className="pull-right">
             <button onClick={this.showModal}>add user</button>
-            <Modal title="Add User"
+            <Modal
+            title="Add User"
           visible={this.state.visible}
           onOk={this.handleOk}
           onCancel={this.handleCancel}
@@ -179,6 +179,7 @@ componentWillUnmount(){
 
             </div>
             </div>
+            
             {this.state.users.users.length?
             <div>
                 <div className="card-body">
@@ -197,12 +198,13 @@ componentWillUnmount(){
                     onChange={this.onPageChange}/>
                     </center>
                 </div>
-            
+                
                 </div>
+                
                 :<div className="card-body">NO USER FOUND</div>
                 }
             </div>
-            </div>
+            
         )
 
 
