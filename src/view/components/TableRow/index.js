@@ -35,8 +35,8 @@ let Row = (props)=>{
     switch (props.type){
         case 'head':
         
-        return <tr  style={{background:'#bae7ff'}}>{props.fieldConfig.map((item,key)=>
-                <th key={key} style={{color:'black'}}><center>
+        return <tr  style={{background:'#f2494f'}}>{props.fieldConfig.map((item,key)=>
+                <th key={key} style={{color:'#fff'}}><center>
                 {item.label}
                 </center></th>)}
         </tr>
@@ -44,7 +44,9 @@ let Row = (props)=>{
         case 'body':
         
         return <tr>
-                {props.fieldConfig.map((item1,key1)=>item1.field=='remove'?null:<td key={key1}><center>
+                {props.fieldConfig.map((item1,key1)=>item1.field=='remove'?                    props.enableLink&&
+                    <td><center><Icon type="delete" onClick={props.handleDelete.bind(this,props.item.id)}/></center></td>
+                    :<td key={key1}><center>
                         {
                             props.enableLink&&
                             <Link className='Link' to={'details/'+props.item._id}>
@@ -55,10 +57,10 @@ let Row = (props)=>{
                         
                         </center> </td>)
                 }
-                {
+                {/* {
                     props.enableLink&&
                     <td><center><Icon type="delete" onClick={props.handleDelete.bind(this,props.item.id)}/></center></td>
-                }
+                } */}
         </tr>
         default:
         return null;

@@ -88,19 +88,19 @@ export default class Details extends React.Component{
             <div className='container'>
                 <div className='container'>
                 
-                    <Button type='primary'  className='pull-left' onClick={this.onSubmit}  style={{background:'#bae7ff' , color:'black'}}>
+                    <Button type='primary'  className='pull-left' onClick={this.onSubmit}  style={{background:'#1890ff' , color:'#fff',marginTop:20}}>
                     <Link className='Link' to='home'>&lt;&lt;back</Link></Button>
                     </div>
                 <br></br><br></br>
-                <h3 className='text-center'>USER DETAILS </h3>
-                <div className="table-responsive"style={{maxWidth:'700px',marginLeft:'150px'}}>
-                <table className="table" style={{color:'black'}} >
+                <h2  style={{color:'#f5d3d7',paddingLeft:'430px'}}><b>USER DETAILS </b></h2>
+                <div className="table-responsive"style={{maxWidth:'950px',marginLeft:'70px'}}>
+                <table className="table" style={{color:'#000'}} >
                 <tbody>
                 {fieldConfig.map((item,key)=>
-                 <tr key={key} style={{background:'#bae7ff'}}><td><b><div className='pull-right'>{item.label}:</div>
+                 <tr key={key} style={{background:'#f5d3d7',columnWidth:'100px'}}><td><b><div className='pull-right'>{item.label}</div>
                 </b>
-                </td>
-                <td style={{paddingRight:'70px',paddingLeft:'70px'}}>
+                </td><td>:</td>
+                <td style={{paddingRight:'70px',color:"#000",}}>
                  <div  className='pull-left'>   {this.state.user[item.field]}</div>
                 </td>
                 </tr>)}

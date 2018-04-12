@@ -106,12 +106,12 @@ console.log(this.state.valueMap)
 return <div >
      <div >
 	<div className="table-responsive">
-    <h3 className='text-center'><u>ADD USER</u></h3>
+    <h3 className='text-center' style={{color:"#000"}}><u>ADD USER</u></h3>
     <table className="table">
 
         <tbody >
             {fieldConfig.map((item,key)=>
-               <tr key={key} style={{background:'#bae7ff'}}><td>
+               <tr key={key} style={{background:'#1890ff',color:'#f5d3d7'}}><td>
                 <b>{item.label}</b>
                 
                         <TextArea placeholder={"enter "+item.field} autosize 
@@ -124,7 +124,7 @@ return <div >
         </tbody>
     </table>
     <div><center>
-    <Button type='primary'  onClick={this.onSubmit}  style={{background:'#bae7ff' , color:'black'}}>SUBMIT</Button>
+    <Button type='primary'  onClick={this.onSubmit}  style={{background:'#f2494f' , color:'#fff'}}>SUBMIT</Button>
     {this.state.error&&<div>fill all fields</div>}</center></div>
     </div>
     </div> 
