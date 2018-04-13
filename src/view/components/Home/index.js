@@ -264,7 +264,7 @@ componentWillUnmount(){
                     onChange={this.onChange}
                 >
                 {this.state.allfield.map((object, key)=>   
-                <TreeNode  value={object.field} key={object.field} title={object.field}></TreeNode>})}
+                <TreeNode  value={object.field} key={object.field} title={object.field}></TreeNode>)}
                    </TreeSelect>
                  
                 </div>
