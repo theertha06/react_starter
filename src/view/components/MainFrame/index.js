@@ -15,7 +15,7 @@ export default class MainFrame extends React.Component{
 		let tabKey = this.props.children.props.route.tabKey;
 		return(
 			<Layout >
-				<Sider
+				{/* <Sider
 			 style={{background:'#1890ff' }}
 			  breakpoint="lg"
 			  collapsedWidth="0"
@@ -33,14 +33,23 @@ export default class MainFrame extends React.Component{
 				  <span className="nav-text">user details</span>
 				</Menu.Item>	
 			  </Menu>
-			</Sider>
+			</Sider> */}
 		
 			
 			<Layout>
-			<Header style={{   height:'40px',background:"#293a4a"}} >
-			<h1><center style={{color:"#fff"}}>USER DATA</center></h1></Header>
-			  <Content style={{ background:"##374c61" }}>
-				<div style={{  background: '#485161', minHeight: 630 }}>
+			<Header style={{   height:'80px',background:"#293a4a"}} >
+			<h1 style={{marginTop:'20px'}}><center style={{color:"#fff"}}>USER DATA</center></h1></Header>
+			<div><Menu
+        theme="light"
+        mode="horizontal"
+        defaultSelectedKeys={['1']}
+        style={{ lineHeight: '64px' }}
+      >
+        <Menu.Item key="1">users</Menu.Item>
+        <Menu.Item key="2">user_details</Menu.Item>
+        </Menu></div>
+			  <Content style={{ background:"#fff", paddingTop:'2px', paddingBottom:'60px'}} >
+				<div style={{  minHeight: 450,paddingTop:5}} className='bgopacity'>
 				  {this.props.children}
 				</div>
 			  </Content>

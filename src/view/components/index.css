@@ -30,3 +30,6 @@
 .table__row_body:nth-child(odd) {
     background-color: lightgrey;
 }
+.bgopacity{
+    background: rgba(89, 175, 225,0.6)
+}

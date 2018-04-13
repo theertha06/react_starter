@@ -30,8 +30,9 @@ export default class Table extends React.Component{
 
 
             <div className="table-responsive" style={{}}>
-                <table className="table table-striped font" style={{width:'800px', marginLeft:'120px',background:"#f5d3d7",color:"#000"}}>
+                <table className="table font" style={{width:'800px', marginLeft:'120px',background:"#fff",color:"#000"}}>
                         <thead >
+                            
                             <Row 
                             fieldConfig={this.props.fieldConfig}
                             type='head'/>

@@ -73,17 +73,16 @@ export default class Details extends React.Component{
         }
         console.log('user',this.state.user)
         let fieldConfig=[
-            { field:'id',label:'ID'},
-            { field:'first_name',label:'FIRST_NAME'},
-            { field:'last_name',label:'LAST_NAME'},
-            { field:'email',label:'EMAIL_ID'},
-            { field:'gender',label:'GENDER'},
-            { field:'address',label:'   ADDRESS'},
-            { field:'phone number',label:'PHONE'},
-            { field:'ip_address',label:'IP_ADDRESS'}
-
-
-    ]
+            {field:'id',label:"ID",isSelected:true},
+            //{field:'remove',label:'REMOVE',isSelected:true},
+            { field:'first_name',label:'FIRST_NAME',isSelected:true},
+            { field:'last_name',label:'LAST_NAME',isSelected:true},
+            { field:'email',label:'EMAIL',isSelected:true},
+            { field:'gender',label:'GENDER',isSelected:true},
+            { field:'address',label:'ADDRESS',isSelected:true},
+            { field:'phone number',label:'PHONE_NUMBER',isSelected:true},
+            { field:'ip_address',label:'IP_ADDRESS',isSelected:true}
+        ]
         return(
             <div className='container'>
                 <div className='container'>
@@ -92,12 +91,12 @@ export default class Details extends React.Component{
                     <Link className='Link' to='home'>&lt;&lt;back</Link></Button>
                     </div>
                 <br></br><br></br>
-                <h2  style={{color:'#f5d3d7',paddingLeft:'430px'}}><b>USER DETAILS </b></h2>
+                <h2  style={{color:'#313d53',paddingLeft:'430px'}}><b>USER DETAILS </b></h2>
                 <div className="table-responsive"style={{maxWidth:'950px',marginLeft:'70px'}}>
                 <table className="table" style={{color:'#000'}} >
                 <tbody>
                 {fieldConfig.map((item,key)=>
-                 <tr key={key} style={{background:'#f5d3d7',columnWidth:'100px'}}><td><b><div className='pull-right'>{item.label}</div>
+                 <tr key={key} style={{background:'#fff',columnWidth:'100px'}}><td><b><div className='pull-right'>{item.label}</div>
                 </b>
                 </td><td>:</td>
                 <td style={{paddingRight:'70px',color:"#000",}}>

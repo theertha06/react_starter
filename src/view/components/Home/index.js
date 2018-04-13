@@ -37,9 +37,15 @@ constructor(props){
         confirmLoading: false,
         value: undefined,
         fieldConfig:[
-            {field:'id',label:"ID"},
-            // {field:'first_name',label:'NAME'},
-            {field:'remove',label:'REMOVE'}
+            {field:'id',label:"ID",selected:false},
+            {field:'remove',label:'REMOVE',selected:true},
+            // { field:'first_name',label:'FIRST_NAME',selected:false},
+            // { field:'last_name',label:'LAST_NAME',selected:false},
+            // { field:'email',label:'EMAIL',selected:false},
+            // { field:'gender',label:'GENDER',selected:false},
+            // { field:'address',label:'ADDRESS',selected:false},
+            // { field:'phone number',label:'PHONE_NUMBER',selected:false},
+            // { field:'ip_address',label:'IP_ADDRESS',selected:false}
         ],
         allfield:[
             
@@ -77,7 +83,12 @@ constructor(props){
         if(allfield[i].field==value){allfield[i].label='1'}
     }
     fieldConfig.push({field:"remove",label:"REMOVE"})
+    // for (let i = 0; i < fieldConfig.length; i++) {
+    //          if(fieldConfig[i].field==value)
+    //          {fieldConfig[i].selected=true}
+    //     }
     this.setState({ 
+        
         fieldConfig
      });
   }
@@ -89,12 +100,16 @@ constructor(props){
         var index 
         for (let i = 0; i < fieldConfig.length; i++) {
             if(fieldConfig[i].field==value)
-            {index=i
+            {index=i;
             allfield[i].label='0'
             }
         }
         console.log("value index",index),
         fieldConfig.splice(index, 1);
+    //     for (let i = 0; i < fieldConfig.length; i++) {
+    //         if(fieldConfig[i].field==value)
+    //         {fieldConfig[i].selected=false}
+    //    }
         this.setState({ 
             fieldConfig
          });  
@@ -189,6 +204,7 @@ componentWillUnmount(){
      }
      
     render(){
+        let i=0
         console.log("isloading",this.state.isLoading)
         if(this.state.isLoading){
             return(
@@ -216,50 +232,41 @@ componentWillUnmount(){
             <Icon type="user-add" />add user
                     </Button></div>
                     
-             <div style={{marginTop:10}}><h3 className='text-center' style={{color:'#f5d3d7'}}>USER</h3></div>
-             
+             <div style={{marginTop:10}}><h3 className='text-center' style={{color:'#313d53'}}>USER</h3></div>
+                {/* //{!this.state.fieldConfig.isSelected?<p>{console.log("notisSelected")}</p>:<p>{console.log("isSelected")}</p>} */}
              <div style={{marginLeft:600,marginBottom:20}}>
                     <TreeSelect
                     
                     style={{ width: 150}}
                     value={this.state.value}
-                    dropdownStyle={{ maxHeight: 400, overflow: 'auto',background:'#f5d3d7' }}
+                    dropdownStyle={{ maxHeight: 400, overflow: 'auto',background:'#1e8ffa' }}
                     placeholder="Select to delete field"
-                    allowClear
+                
                     treeDefaultExpandAll
                     onChange={this.onDelete}
                 >
-                 {this.state.allfield.map((object, i)=>
-                <TreeNode value={object.field} key={i} title={object.field}/>
+                
+                 {this.state.allfield.map((object, key1)=> 
+                <TreeNode  value={object.field} title={object.field} key={object.field} />
+                //console.log("selected","false")
+                
                  )}
 
                 </TreeSelect>
                 
                 <TreeSelect
-                    
                     style={{ width: 150 ,marginLeft:'20px'}}
                     value={this.state.value}
-                    dropdownStyle={{ maxHeight: 400, overflow: 'auto' ,background:'#f5d3d7'}}
+                    dropdownStyle={{ maxHeight: 400, overflow: 'auto' ,background:'#1e8ffa'}}
                     placeholder="Select to add field"
                     allowClear
                     treeDefaultExpandAll
                     onChange={this.onChange}
                 >
-                {this.state.allfield.map((object, i)=>
-                <TreeNode value={object.field} key={i} title={object.field}/>
-                 )}
-{/*                 
-                <TreeNode value='first_name' title="first_name" key="2"/>
-                <TreeNode value='last_name' title="last_name" key="3"/>
-                <TreeNode value='gender' title="gender" key="5"/>
-                <TreeNode value='address' title="address" key="6"/>
-                <TreeNode value='phone number' title="phone number" key="7"/>
-                <TreeNode value='email' title="email" key="8"/>
-                <TreeNode value='ip_address' title="ip_address" key="9"/>
-             */}
-            
-            
-                </TreeSelect>
+                {this.state.allfield.map((object, key)=>   
+                <TreeNode  value={object.field} key={object.field} title={object.field}></TreeNode>})}
+                   </TreeSelect>
+                 
                 </div>
             <div>
                      
@@ -267,13 +274,13 @@ componentWillUnmount(){
             
             
             <Modal
-            title=''
+        
           visible={this.state.visible}
           onOk={this.handleOk}
           onCancel={this.handleCancel}
           footer={<div>
           
-          <Button type='primary'  onClick={this.handleCancel}  style={{background:'#f2494f' , color:'#fff'}}>cancel</Button>
+          <Button type='primary'  onClick={this.handleCancel}  style={{background:'#1e8ffa' , color:'#fff'}}>cancel</Button>
           </div>}
         >
           <AddUser handleOk={this.handleOk}/>

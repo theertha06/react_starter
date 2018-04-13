@@ -89,15 +89,15 @@ if(!_.keys(this.state.valueMap).length){
 
 render(){
     let fieldConfig=[
-        { field:'id',label:'ID'},
+        {field:'id',label:"ID"},
+        {field:'remove',label:'REMOVE'},
         { field:'first_name',label:'FIRST_NAME'},
         { field:'last_name',label:'LAST_NAME'},
-        { field:'email',label:'EMAIL_ID'},
+        { field:'email',label:'EMAIL'},
         { field:'gender',label:'GENDER'},
-        { field:'address',label:'   ADDRESS'},
-        { field:'phone number',label:'PHONE'},
+        { field:'address',label:'ADDRESS'},
+        { field:'phone number',label:'PHONE_NUMBER'},
         { field:'ip_address',label:'IP_ADDRESS'}
-        
     ]
 
 
@@ -106,15 +106,16 @@ console.log(this.state.valueMap)
 return <div >
      <div >
 	<div className="table-responsive">
-    <h3 className='text-center' style={{color:"#000"}}><u>ADD USER</u></h3>
+    <div style={{background:'#313d53',height:40,paddingTop:5,marginTop:10}}><h4 className='text-center' style={{color:"#fff"}}>ADD USER</h4></div>
     <table className="table">
 
         <tbody >
             {fieldConfig.map((item,key)=>
-               <tr key={key} style={{background:'#1890ff',color:'#f5d3d7'}}><td>
+               <tr key={key} style={{color:'#000'}} className='bgopacity'><td>
                 <b>{item.label}</b>
-                
-                        <TextArea placeholder={"enter "+item.field} autosize 
+                </td><td>
+                        <TextArea placeholder={"enter "+item.field} 
+                             
                             value={this.state[item.field]} 
                             onChange={this.handleChange.bind(this,item.field)}>
                         </TextArea>
@@ -124,7 +125,7 @@ return <div >
         </tbody>
     </table>
     <div><center>
-    <Button type='primary'  onClick={this.onSubmit}  style={{background:'#f2494f' , color:'#fff'}}>SUBMIT</Button>
+    <Button type='primary'  onClick={this.onSubmit}  style={{background:'#1e8ffa' , color:'#fff'}}>SUBMIT</Button>
     {this.state.error&&<div>fill all fields</div>}</center></div>
     </div>
     </div> 
