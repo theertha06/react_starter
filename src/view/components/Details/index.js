@@ -88,7 +88,7 @@ export default class Details extends React.Component{
                 <div className='container'>
                 
                     <Button type='primary'  className='pull-left' onClick={this.onSubmit}  style={{background:'#1890ff' , color:'#fff',marginTop:20}}>
-                    <Link className='Link' to='home'>&lt;&lt;back</Link></Button>
+                    <Link className='Link' to='home'>&lt;&lt;BACK</Link></Button>
                     </div>
                 <br></br><br></br>
                 <h1  style={{color:'#313d53',paddingLeft:'430px'}}><b>USER DETAILS </b></h1>

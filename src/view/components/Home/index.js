@@ -36,7 +36,7 @@ constructor(props){
         ModalText: 'Content of the modal',
         visible: false,
         confirmLoading: false,
-        value: 'select a field ',
+        value: 'SELECT A FIELD ',
         // fieldConfig:[
         //     {field:'id',label:"ID"},
         //     {field:'remove',label:'REMOVE'},
@@ -223,14 +223,15 @@ componentWillUnmount(){
         return(
             <div className="container" style={{fontFamily:'Open Sans'}}>
             <div><Button type='primary' onClick={this.showModal}  style={{background:'#1890ff' , color:'#fff',marginLeft:'890px'}}>
-            <Icon type="user-add" />add user
+            <Icon type="user-add" />ADD USER
                     </Button></div>
                     
              <div style={{marginTop:10}}><h1 className='text-center' style={{color:'#313d53'}}><b>USERS</b></h1></div>
+            <div className='container'>
              <div style={{marginLeft:600,marginBottom:20}}>
                     <TreeSelect
                     
-                    style={{ width: 150}}
+                    style={{ width: 200}}
                     value={this.state.value}
                     dropdownStyle={{ maxHeight: 400, overflow: 'auto',background:'#1e8ffa' }}
                     //placeholder="Select to delete field"
@@ -245,10 +246,10 @@ componentWillUnmount(){
                 </TreeSelect>
                <Button 
                style={{marginLeft:'10px' , marginRight:'10px'}}
-               onClick={this.onAdd}>Add</Button>
+               onClick={this.onAdd}>ADD</Button>
                <Button
                style={{}}
-               onClick={this.onDelete}>Delete</Button>                
+               onClick={this.onDelete}>DELETE</Button>                
                 
                 </div>
             <div>
@@ -262,7 +263,7 @@ componentWillUnmount(){
           onOk={this.handleOk}
           onCancel={this.handleCancel}
           footer={<div>
-          <Button type='primary'  onClick={this.handleCancel}  style={{background:'#1e8ffa' , color:'#fff'}}>cancel</Button>
+          <Button type='primary'  onClick={this.handleCancel}  style={{background:'#1e8ffa' , color:'#fff'}}>CANCEL</Button>
           </div>}
         >
           <AddUser handleOk={this.handleOk}/>
@@ -271,7 +272,7 @@ componentWillUnmount(){
             </div>
             </div>
             
-            
+            <div>
             {this.state.users.users.length?
             <div>
                 <div className="card-body">
@@ -295,6 +296,8 @@ componentWillUnmount(){
                 
                 :<div className="card-body">NO USER FOUND</div>
                 }
+                </div>
+                </div>
             </div>
             
         )

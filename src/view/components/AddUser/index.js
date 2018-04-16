@@ -15,7 +15,6 @@ import errorStore from '../Home/store/getDataError';
  import loadingStore from '../Home/store/loadingStore';
 
  import { Form, Icon, Input, Button,InputNumber } from 'antd';
-import SplitPane from 'react-split-pane';
 const FormItem = Form.Item;
 const { TextArea } = Input;
 

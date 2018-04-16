@@ -49,7 +49,7 @@ export default class MainFrame extends React.Component{
         <Menu.Item key="2"><b>USER_DETAILS</b></Menu.Item>
         </Menu></div>
 			  <Content style={{ background:"#fff", paddingBottom:'60px'}} >
-				<div style={{  minHeight: 450,paddingTop:5}} className='bgopacity'>
+				<div style={{  minHeight: 700,paddingTop:5}} className='bgopacity'>
 				  {this.props.children}
 				</div>
 			  </Content>
