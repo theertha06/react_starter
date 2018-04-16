@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 import getDataAction from './action/getDataAction';
 import deleteDataAction from './action/deleteDataAction';
 import getDataStore from './store/getDataStore';
@@ -35,27 +36,22 @@ constructor(props){
         ModalText: 'Content of the modal',
         visible: false,
         confirmLoading: false,
-        value: undefined,
-        fieldConfig:[
-            {field:'id',label:"ID",selected:false},
-            {field:'remove',label:'REMOVE',selected:true},
-            // { field:'first_name',label:'FIRST_NAME',selected:false},
-            // { field:'last_name',label:'LAST_NAME',selected:false},
-            // { field:'email',label:'EMAIL',selected:false},
-            // { field:'gender',label:'GENDER',selected:false},
-            // { field:'address',label:'ADDRESS',selected:false},
-            // { field:'phone number',label:'PHONE_NUMBER',selected:false},
-            // { field:'ip_address',label:'IP_ADDRESS',selected:false}
-        ],
-        allfield:[
+        value: 'select a field ',
+        // fieldConfig:[
+        //     {field:'id',label:"ID"},
+        //     {field:'remove',label:'REMOVE'},
             
-            { field:'first_name',label:'0'},
-            { field:'last_name',label:'0'},
-            { field:'email',label:'0'},
-            { field:'gender',label:'0'},
-            { field:'address',label:'   0'},
-            { field:'phone number',label:'0'},
-            { field:'ip_address',label:'0'}
+        // ],
+        fieldConfig:[
+            { field:'id',label:'ID',added:true},
+            { field:'remove',label:'REMOVE',added:true},
+            { field:'first_name',label:'FIRST NAME',added:false},
+            { field:'last_name',label:'LAST NAME',added:false},
+            { field:'email',label:'EMAIL',added:false},
+            { field:'gender',label:'GENDER',added:false},
+            { field:'address',label:'ADDRESS',added:false},
+            { field:'phone number',label:'PHONE NUMBER',added:false},
+            { field:'ip_address',label:'IP ADDRESS',added:false}
             
         ]
     }
@@ -69,51 +65,49 @@ constructor(props){
     this.onChange=this.onChange.bind(this)
     this.handleAddField=this.onChange.bind(this)
     this.onDelete=this.onDelete.bind(this)
+    this.onAdd=this.onAdd.bind(this)
 }
 
 
   onChange (value){
-    //console.log("key",arguments[2].triggerNode.props.eventKey);
-    console.log("value",value);
-    let fieldConfig = this.state.fieldConfig;
-    let allfield=this.state.allfield;
-    fieldConfig.pop()
-    fieldConfig.push({field:value,label:value})
-    for (let i = 0; i < allfield.length; i++) {
-        if(allfield[i].field==value){allfield[i].label='1'}
-    }
-    fieldConfig.push({field:"remove",label:"REMOVE"})
-    // for (let i = 0; i < fieldConfig.length; i++) {
-    //          if(fieldConfig[i].field==value)
-    //          {fieldConfig[i].selected=true}
-    //     }
-    this.setState({ 
-        
-        fieldConfig
+      console.log("value:",value)
+    this.value=value
+    this.setState({value   
      });
   }
-    onDelete(value){
-        
-        console.log("value",value);
-        let fieldConfig = this.state.fieldConfig;
-        let allfield=this.state.allfield
-        var index 
+    onDelete(){
+        let fieldConfig=this.state.fieldConfig
         for (let i = 0; i < fieldConfig.length; i++) {
-            if(fieldConfig[i].field==value)
-            {index=i;
-            allfield[i].label='0'
+            if (fieldConfig[i].field==this.value){
+                if(fieldConfig[i].added==true){
+                fieldConfig[i].added=false}
+                else{
+                    alert(fieldConfig[i].field+" is not added")
+                }
             }
+            
         }
-        console.log("value index",index),
-        fieldConfig.splice(index, 1);
-    //     for (let i = 0; i < fieldConfig.length; i++) {
-    //         if(fieldConfig[i].field==value)
-    //         {fieldConfig[i].selected=false}
-    //    }
         this.setState({ 
             fieldConfig
          });  
     }
+    onAdd(){
+        console.log("adding...")
+        let fieldConfig=this.state.fieldConfig
+        for (let i = 0; i < fieldConfig.length; i++) {
+            if (fieldConfig[i].field==this.value){
+                if(fieldConfig[i].added==false){
+                fieldConfig[i].added=true}
+                else{
+                    alert(fieldConfig[i].field+" is already added")
+                }
+            }
+            this.setState({
+                fieldConfig
+            });
+            
+    }
+}
 buildQuery(current,pageSize){
     return {
         size:pageSize,
@@ -155,7 +149,7 @@ componentWillUnmount(){
 	 		isLoading:false
 	 	})
 	 }
-     handleAddField(){} 
+      
      onDeleteResponse(){
          setTimeout(() => {
              getDataAction.getData(this.buildQuery(this.state.current,this.state.pageSize));
@@ -232,41 +226,30 @@ componentWillUnmount(){
             <Icon type="user-add" />add user
                     </Button></div>
                     
-             <div style={{marginTop:10}}><h3 className='text-center' style={{color:'#313d53'}}>USER</h3></div>
-                {/* //{!this.state.fieldConfig.isSelected?<p>{console.log("notisSelected")}</p>:<p>{console.log("isSelected")}</p>} */}
+             <div style={{marginTop:10}}><h1 className='text-center' style={{color:'#313d53'}}><b>USERS</b></h1></div>
              <div style={{marginLeft:600,marginBottom:20}}>
                     <TreeSelect
                     
                     style={{ width: 150}}
                     value={this.state.value}
                     dropdownStyle={{ maxHeight: 400, overflow: 'auto',background:'#1e8ffa' }}
-                    placeholder="Select to delete field"
-                
-                    treeDefaultExpandAll
-                    onChange={this.onDelete}
-                >
-                
-                 {this.state.allfield.map((object, key1)=> 
-                <TreeNode  value={object.field} title={object.field} key={object.field} />
-                //console.log("selected","false")
-                
-                 )}
-
-                </TreeSelect>
-                
-                <TreeSelect
-                    style={{ width: 150 ,marginLeft:'20px'}}
-                    value={this.state.value}
-                    dropdownStyle={{ maxHeight: 400, overflow: 'auto' ,background:'#1e8ffa'}}
-                    placeholder="Select to add field"
-                    allowClear
+                    //placeholder="Select to delete field"
                     treeDefaultExpandAll
                     onChange={this.onChange}
                 >
-                {this.state.allfield.map((object, key)=>   
-                <TreeNode  value={object.field} key={object.field} title={object.field}></TreeNode>)}
-                   </TreeSelect>
-                 
+                
+                 {this.state.fieldConfig.map((object, key1)=>
+                <TreeNode  value={object.field} title={object.field} key={key1} />
+                 )}
+
+                </TreeSelect>
+               <Button 
+               style={{marginLeft:'10px' , marginRight:'10px'}}
+               onClick={this.onAdd}>Add</Button>
+               <Button
+               style={{}}
+               onClick={this.onDelete}>Delete</Button>                
+                
                 </div>
             <div>
                      
@@ -274,12 +257,11 @@ componentWillUnmount(){
             
             
             <Modal
-        
+            width="1000px"
           visible={this.state.visible}
           onOk={this.handleOk}
           onCancel={this.handleCancel}
           footer={<div>
-          
           <Button type='primary'  onClick={this.handleCancel}  style={{background:'#1e8ffa' , color:'#fff'}}>cancel</Button>
           </div>}
         >
@@ -316,21 +298,5 @@ componentWillUnmount(){
             </div>
             
         )
-
-
-       /* 
-        return(
-            <div className="container">
-                welocome to home page
-                <Table 
-                    fieldConfig={fieldConfig} 
-                    users={this.state.users.users}/>
-                <Pagination 
-                    current={this.state.current} 
-                    pageSize={this.state.pageSize} 
-                    total={this.state.users.total}
-                    onChange={this.onPageChange}/>
-            </div>
-        )*/
     }
 }

@@ -33,3 +33,11 @@
 .bgopacity{
     background: rgba(89, 175, 225,0.6)
 }
+
+.tableContainer{
+    
+    
+    empty-cells:show;
+    width:90%;
+    text-align:left;
+} 

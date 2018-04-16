@@ -32,21 +32,30 @@ let Row = (props)=>{
         return null
     }*/
 
+
     switch (props.type){
         case 'head':
         
-        return <tr  style={{background:'#313d53'}}>{props.fieldConfig.map((item,key)=>
-                <th key={key} style={{color:'#fff'}}><center>
-                {item.label}
-                </center></th>)}
+        return <tr  style={{background:'#313d53'}}>{props.fieldConfig.map((item,key)=> 
+                item.added? 
+                <th key={key} style={{color:'#fff', fontSize:"18px"}}><center>
+                    {item.label}
+        </center></th>:null)}
         </tr>
 
         case 'body':
         
         return <tr>
-                {props.fieldConfig.map((item1,key1)=>item1.field=='remove'?                  props.enableLink&&
+                {props.fieldConfig.map((item1,key1)=>item1.added?
+                  
+                item1.field=='remove'?  
+                    props.enableLink&&
                     <td><center><Icon type="delete" onClick={props.handleDelete.bind(this,props.item.id)}/></center></td>
-                    :<td key={key1}><center>
+                :             
+                // <td><center><Icon type="delete" onClick={props.handleDelete.bind(this,props.item.id)}/></center></td>
+                //     : 
+                props.enableLink&&
+                    <td key={key1}><center>
                         {
                             props.enableLink&&
                             <Link className='Link' to={'details/'+props.item._id}>
@@ -55,12 +64,10 @@ let Row = (props)=>{
                         }
                         {!props.enableLink&&props.item[item1.field]}
                         
-                        </center> </td>)
-                }
-                {/* {
-                    props.enableLink&&
-                    <td><center><Icon type="delete" onClick={props.handleDelete.bind(this,props.item.id)}/></center></td>
-                } */}
+                        </center> </td>
+                
+                
+                :null)}
         </tr>
         default:
         return null;

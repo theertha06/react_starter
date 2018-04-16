@@ -38,17 +38,17 @@ export default class MainFrame extends React.Component{
 			
 			<Layout>
 			<Header style={{   height:'80px',background:"#293a4a"}} >
-			<h1 style={{marginTop:'20px'}}><center style={{color:"#fff"}}>USER DATA</center></h1></Header>
-			<div><Menu
+			<h3 style={{marginTop:'22px'}}><center style={{color:"#fff"}}>USER DATA</center></h3></Header>
+			<div style={{paddingTop:'5px'}}><Menu
         theme="light"
         mode="horizontal"
         defaultSelectedKeys={['1']}
-        style={{ lineHeight: '64px' }}
+        style={{ lineHeight: '64px' , fontSize:"20px" }}
       >
-        <Menu.Item key="1">users</Menu.Item>
-        <Menu.Item key="2">user_details</Menu.Item>
+        <Menu.Item key="1"><b>USERS</b></Menu.Item>
+        <Menu.Item key="2"><b>USER_DETAILS</b></Menu.Item>
         </Menu></div>
-			  <Content style={{ background:"#fff", paddingTop:'2px', paddingBottom:'60px'}} >
+			  <Content style={{ background:"#fff", paddingBottom:'60px'}} >
 				<div style={{  minHeight: 450,paddingTop:5}} className='bgopacity'>
 				  {this.props.children}
 				</div>

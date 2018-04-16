@@ -51,6 +51,7 @@
     "react-dom": "^0.14.2",
     "react-router": "^3.0.2",
     "react-simple-dropdown": "^1.1.5",
+    "react-splitter-layout": "^3.0.0",
     "static-loader": "^0.1.8",
     "style-loader": "^0.13.1",
     "swagger-tools": "^0.10.1",

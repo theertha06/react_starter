@@ -91,7 +91,7 @@ export default class Details extends React.Component{
                     <Link className='Link' to='home'>&lt;&lt;back</Link></Button>
                     </div>
                 <br></br><br></br>
-                <h2  style={{color:'#313d53',paddingLeft:'430px'}}><b>USER DETAILS </b></h2>
+                <h1  style={{color:'#313d53',paddingLeft:'430px'}}><b>USER DETAILS </b></h1>
                 <div className="table-responsive"style={{maxWidth:'950px',marginLeft:'70px'}}>
                 <table className="table" style={{color:'#000'}} >
                 <tbody>

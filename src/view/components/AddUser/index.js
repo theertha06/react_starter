@@ -14,7 +14,8 @@ import addDataStore from './store/addDataStore';
 import errorStore from '../Home/store/getDataError';
  import loadingStore from '../Home/store/loadingStore';
 
- import { Form, Icon, Input, Button } from 'antd';
+ import { Form, Icon, Input, Button,InputNumber } from 'antd';
+import SplitPane from 'react-split-pane';
 const FormItem = Form.Item;
 const { TextArea } = Input;
 
@@ -28,8 +29,10 @@ export default class AddUser extends React.Component{
         this.handleChange = this.handleChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.onResponse = this.onResponse.bind(this);
+        //this.onChange=this.onChange.bind(this)
     }
 
+   
     componentWillMount(){
     
         //  addDataAction.addData(this.valueMap);
@@ -67,7 +70,15 @@ handleChange(key,e){
         valueMap
     })
 }
+// onChange(value,key){
+//     console.log(key,value)
+//     let valueMap = this.state.valueMap;
+//     valueMap[key] =value;
+//     this.setState({
+//         valueMap
+//     })
 
+// }
 onSubmit(){
     
     let error = false;
@@ -89,51 +100,112 @@ if(!_.keys(this.state.valueMap).length){
 
 render(){
     let fieldConfig=[
-        {field:'id',label:"ID"},
-        {field:'remove',label:'REMOVE'},
-        { field:'first_name',label:'FIRST_NAME'},
-        { field:'last_name',label:'LAST_NAME'},
-        { field:'email',label:'EMAIL'},
-        { field:'gender',label:'GENDER'},
-        { field:'address',label:'ADDRESS'},
-        { field:'phone number',label:'PHONE_NUMBER'},
-        { field:'ip_address',label:'IP_ADDRESS'}
+        {field:'id',label:"ID",fieldtype:"input",id:1},
+        { field:'first_name',label:'FIRST_NAME',fieldtype:"input",id:2},
+        { field:'last_name',label:'LAST_NAME',fieldtype:"input",id:3},
+        { field:'email',label:'EMAIL',fieldtype:"input",id:4},
+        { field:'gender',label:'GENDER',fieldtype:"input",id:5},
+        { field:'address',label:'ADDRESS',fieldtype:"textarea",id:6},
+        { field:'phone number',label:'PHONE_NUMBER',fieldtype:"input",id:7},
+        { field:'ip_address',label:'IP_ADDRESS',fieldtype:"input",id:8}
     ]
 
 
 console.log(this.state.valueMap)
 
 return <div >
-     <div >
-	<div className="table-responsive">
-    <div style={{background:'#313d53',height:40,paddingTop:5,marginTop:10}}><h4 className='text-center' style={{color:"#fff"}}>ADD USER</h4></div>
-    <table className="table">
+    <div style={{background:'#313d53',height:40,paddingTop:5,marginTop:35}}><h4 className='text-center' style={{color:"#fff"}}>ADD USER</h4></div>
+    
+    <div className="container" style={{paddingTop:'10px', paddingBottom:'20px'}}>
+  <div className="row">
+    <div className="col">
+    {
+        <table ><tbody >{
+        fieldConfig.map((item,key)=> item.id<=5?
+               <tr key={key} className="tableContainer" style={{color:'#000'}}><td>
+                <b>{item.label}:</b>
+                </td>
+                {item.fieldtype=='textarea'?
+                <td>
+                        <TextArea 
+                            placeholder={"enter "+item.field}  
+                            onChange={this.handleChange.bind(this,item.field)}>
+                        </TextArea>
+                </td>
+                : item.fieldtype=='input'? <td>
+                    <Input  placeholder={"enter "+item.field} 
+                    size="default"
+                    onChange={this.handleChange.bind(this,item.field)} /></td>
+                :item.fieldtype=='numberinput'?<td>
+                    <InputNumber  
+                   size="default" 
+                            onChange={this.handleChange.bind(this,item.field)} /></td>
+    :null}</tr>:null)}</tbody></table>}</div>
+    <div className="col">
+    {
+        <table><tbody>
+               {fieldConfig.map((item,key)=> item.id>5?
+               <tr key={key} style={{color:'#000'}} ><td>
+                <b>{item.label}:</b>
+                </td>
+                {item.fieldtype=='textarea'?
+                <td>
+                        <TextArea placeholder={"enter "+item.field} 
+                             
+                            
+                            onChange={this.handleChange.bind(this,item.field)}>
+                        </TextArea>
+                </td>
+                : item.fieldtype=='input'? <td>
+                    <Input  placeholder={"enter "+item.field} 
+                    size="default"
+                     
+                    onChange={this.handleChange.bind(this,item.field)} /></td>
+                :item.fieldtype=='numberinput'?<td>
+                    <InputNumber  
+                 min={0} max={9999999999}
+                            onChange={this.onChange.bind(this)} /></td>
+        :null}</tr>
+        
+        :null)}</tbody></table>}</div>
+    </div>
+  
+</div>
+    
+    
+    {/* <table className="table">
 
         <tbody >
-            {fieldConfig.map((item,key)=>
-               <tr key={key} style={{color:'#000'}} className='bgopacity'><td>
+            {fieldConfig.map((item,key)=> item.id<5?<div></div>
+               <tr key={key} style={{color:'#000'}} ><td>
                 <b>{item.label}</b>
-                </td><td>
+                </td>
+                {item.fieldtype=='textarea'?
+                <td>
                         <TextArea placeholder={"enter "+item.field} 
                              
                             value={this.state[item.field]} 
                             onChange={this.handleChange.bind(this,item.field)}>
                         </TextArea>
                 </td>
-                </tr>)}
-            
+                : item.fieldtype=='input'? <td>
+                    <Input  placeholder={"enter "+item.field} 
+                    size="small"
+                    value={this.state[item.field]} 
+                    onChange={this.handleChange.bind(this,item.field)} /></td>
+                :item.fieldtype=='numberinput'?<td>
+                    <InputNumber  
+                    size="small"
+                    value={this.state[item.field]} 
+                            onChange={this.handleChange.bind(this,item.field)} /></td>
+    
+            )}
         </tbody>
-    </table>
+    </table> */}
     <div><center>
     <Button type='primary'  onClick={this.onSubmit}  style={{background:'#1e8ffa' , color:'#fff'}}>SUBMIT</Button>
     {this.state.error&&<div>fill all fields</div>}</center></div>
     </div>
-    </div> 
-    
-    
-
-</div>
-
 }
 
 }
