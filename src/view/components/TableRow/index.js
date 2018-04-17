@@ -42,7 +42,7 @@ let Row = (props)=>{
                     {item.label}
                     {item.field!="remove"&&item.field!="id"&&
                     <Icon type="close-square" 
-            style={{marginLeft:5}}
+            style={{marginLeft:5 , cursor:"pointer"}}
         onClick={props.onDelete.bind(this,item.label)}/>} 
         </center></th>:null)}
         </tr>
@@ -59,16 +59,15 @@ let Row = (props)=>{
                 // <td><center><Icon type="delete" onClick={props.handleDelete.bind(this,props.item.id)}/></center></td>
                 //     : 
                 props.enableLink&&
-                    <td key={key1}><center>
+                <Link className='Link' to={'details/'+props.item._id}><td key={key1}><center>
                         {
-                            props.enableLink&&
-                            <Link className='Link' to={'details/'+props.item._id}>
-                                    {props.item[item1.field]}
-                            </Link>
+                                               
+                        props.item[item1.field]
+                            
                         }
                         {!props.enableLink&&props.item[item1.field]}
                         
-                        </center> </td>
+                        </center> </td></Link>
                 
                 
                 :null)}
