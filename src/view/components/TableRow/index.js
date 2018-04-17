@@ -43,7 +43,7 @@ let Row = (props)=>{
                     {item.field!="remove"&&item.field!="id"&&
                     <Icon type="close-square" 
             style={{marginLeft:5}}
-        onClick={props.onDelete.bind(this,item.field)}/>} 
+        onClick={props.onDelete.bind(this,item.label)}/>} 
         </center></th>:null)}
         </tr>
 

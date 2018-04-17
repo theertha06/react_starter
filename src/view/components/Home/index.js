@@ -79,11 +79,11 @@ constructor(props){
     onDelete(value){
         let fieldConfig=this.state.fieldConfig
         for (let i = 0; i < fieldConfig.length; i++) {
-            if (fieldConfig[i].field==value){
+            if (fieldConfig[i].label==value){
                 if(fieldConfig[i].added==true){
                 fieldConfig[i].added=false}
                 else{
-                    alert(fieldConfig[i].field+" is not added")
+                    alert(fieldConfig[i].label+" is not added")
                 }
             }
             
@@ -96,11 +96,11 @@ constructor(props){
         console.log("adding...")
         let fieldConfig=this.state.fieldConfig
         for (let i = 0; i < fieldConfig.length; i++) {
-            if (fieldConfig[i].field==this.value){
+            if (fieldConfig[i].label==this.value){
                 if(fieldConfig[i].added==false){
                 fieldConfig[i].added=true}
-                else{
-                    alert(fieldConfig[i].field+" is already added")
+                else if(fieldConfig[i].added==true){
+                    alert(fieldConfig[i].label+" is already added")
                 }
             }
             this.setState({
@@ -263,8 +263,8 @@ componentWillUnmount(){
                     onChange={this.onChange}
                     
                     treeData={this.state.fieldConfig.map((object, key1)=>!object.added?
-                           {label:object.field,
-                            value:object.field}:{disabled:true})}
+                           {label:object.label,
+                            value:object.label}:{disabled:true})}
                     >
                      </TreeSelect>
                  {/* {this.state.fieldConfig.map((object, key1)=> {
