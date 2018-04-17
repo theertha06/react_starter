@@ -117,7 +117,7 @@ return <div >
     
     <div className="container" style={{paddingTop:'10px', paddingBottom:'20px'}}>
   <div className="row">
-    <div className="col">
+    <div className="col" style={{paddingLeft:'90px'}}>
     {
         <table ><tbody >{
         fieldConfig.map((item,key)=> item.id<=5?
@@ -127,20 +127,24 @@ return <div >
                 {item.fieldtype=='textarea'?
                 <td>
                         <TextArea 
+                        style={{marginTop:'10px'}}
                             placeholder={"enter "+item.field}  
                             onChange={this.handleChange.bind(this,item.field)}>
                         </TextArea>
                 </td>
                 : item.fieldtype=='input'? <td>
-                    <Input  placeholder={"enter "+item.field} 
+                    <Input  
+                    style={{marginTop:'10px'}}
+                    placeholder={"enter "+item.field} 
                     size="default"
                     onChange={this.handleChange.bind(this,item.field)} /></td>
                 :item.fieldtype=='numberinput'?<td>
                     <InputNumber  
+                    style={{marginTop:'10px'}}
                    size="default" 
                             onChange={this.handleChange.bind(this,item.field)} /></td>
     :null}</tr>:null)}</tbody></table>}</div>
-    <div className="col">
+    <div className="col" style={{paddingLeft:'60px'}}>
     {
         <table><tbody>
                {fieldConfig.map((item,key)=> item.id>5?
@@ -150,18 +154,21 @@ return <div >
                 {item.fieldtype=='textarea'?
                 <td>
                         <TextArea placeholder={"enter "+item.field} 
-                             
+                             style={{marginTop:'10px'}}
                             
                             onChange={this.handleChange.bind(this,item.field)}>
                         </TextArea>
                 </td>
                 : item.fieldtype=='input'? <td>
-                    <Input  placeholder={"enter "+item.field} 
+                    <Input  
+                    style={{marginTop:'10px'}}
+                    placeholder={"enter "+item.field} 
                     size="default"
                      
                     onChange={this.handleChange.bind(this,item.field)} /></td>
                 :item.fieldtype=='numberinput'?<td>
-                    <InputNumber  
+                    <InputNumber 
+                    style={{marginTop:'10px'}} 
                  min={0} max={9999999999}
                             onChange={this.onChange.bind(this)} /></td>
         :null}</tr>
@@ -170,39 +177,8 @@ return <div >
     </div>
   
 </div>
-    
-    
-    {/* <table className="table">
-
-        <tbody >
-            {fieldConfig.map((item,key)=> item.id<5?<div></div>
-               <tr key={key} style={{color:'#000'}} ><td>
-                <b>{item.label}</b>
-                </td>
-                {item.fieldtype=='textarea'?
-                <td>
-                        <TextArea placeholder={"enter "+item.field} 
-                             
-                            value={this.state[item.field]} 
-                            onChange={this.handleChange.bind(this,item.field)}>
-                        </TextArea>
-                </td>
-                : item.fieldtype=='input'? <td>
-                    <Input  placeholder={"enter "+item.field} 
-                    size="small"
-                    value={this.state[item.field]} 
-                    onChange={this.handleChange.bind(this,item.field)} /></td>
-                :item.fieldtype=='numberinput'?<td>
-                    <InputNumber  
-                    size="small"
-                    value={this.state[item.field]} 
-                            onChange={this.handleChange.bind(this,item.field)} /></td>
-    
-            )}
-        </tbody>
-    </table> */}
     <div><center>
-    <Button type='primary'  onClick={this.onSubmit}  style={{background:'#1e8ffa' , color:'#fff'}}>SUBMIT</Button>
+    <Button type='primary'  onClick={this.onSubmit}  style={{background:'#1e8ffa' , color:'#fff' , marginTop:'20px'}}>SUBMIT</Button>
     {this.state.error&&<div>fill all fields</div>}</center></div>
     </div>
 }

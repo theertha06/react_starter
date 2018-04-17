@@ -42,14 +42,15 @@ export default class MainFrame extends React.Component{
 			<div style={{paddingTop:'5px'}}><Menu
         theme="light"
         mode="horizontal"
-        defaultSelectedKeys={['1']}
+				// defaultSelectedKeys={[tabKey]}
+				selectedKeys={[tabKey]}
         style={{ lineHeight: '64px' , fontSize:"20px" }}
       >
-        <Menu.Item key="1"><b>USERS</b></Menu.Item>
-        <Menu.Item key="2"><b>USER_DETAILS</b></Menu.Item>
+        <Menu.Item key="home"><b>USERS</b></Menu.Item>
+        <Menu.Item key="details"><b>USER_DETAILS</b></Menu.Item>
         </Menu></div>
 			  <Content style={{ background:"#fff", paddingBottom:'60px'}} >
-				<div style={{  minHeight: 700,paddingTop:5}} className='bgopacity'>
+				<div style={{  paddingBottom:'20px',paddingTop:5}} className='bgopacity'>
 				  {this.props.children}
 				</div>
 			  </Content>

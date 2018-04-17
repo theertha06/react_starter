@@ -40,6 +40,10 @@ let Row = (props)=>{
                 item.added? 
                 <th key={key} style={{color:'#fff', fontSize:"18px"}}><center>
                     {item.label}
+                    {item.field!="remove"&&item.field!="id"&&
+                    <Icon type="close-square" 
+            style={{marginLeft:5}}
+        onClick={props.onDelete.bind(this,item.field)}/>} 
         </center></th>:null)}
         </tr>
 

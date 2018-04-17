@@ -31,6 +31,7 @@ constructor(props){
     super(props);
     this.state = {
         isLoading:true,
+        keycount:1,
         pageSize:7,
         current:1,
         ModalText: 'Content of the modal',
@@ -44,14 +45,14 @@ constructor(props){
         // ],
         fieldConfig:[
             { field:'id',label:'ID',added:true},
-            { field:'remove',label:'REMOVE',added:true},
             { field:'first_name',label:'FIRST NAME',added:false},
             { field:'last_name',label:'LAST NAME',added:false},
             { field:'email',label:'EMAIL',added:false},
             { field:'gender',label:'GENDER',added:false},
             { field:'address',label:'ADDRESS',added:false},
             { field:'phone number',label:'PHONE NUMBER',added:false},
-            { field:'ip_address',label:'IP ADDRESS',added:false}
+            { field:'ip_address',label:'IP ADDRESS',added:false},
+            { field:'remove',label:'REMOVE',added:true},
             
         ]
     }
@@ -75,10 +76,10 @@ constructor(props){
     this.setState({value   
      });
   }
-    onDelete(){
+    onDelete(value){
         let fieldConfig=this.state.fieldConfig
         for (let i = 0; i < fieldConfig.length; i++) {
-            if (fieldConfig[i].field==this.value){
+            if (fieldConfig[i].field==value){
                 if(fieldConfig[i].added==true){
                 fieldConfig[i].added=false}
                 else{
@@ -199,6 +200,7 @@ componentWillUnmount(){
      
     render(){
         let i=0
+        
         console.log("isloading",this.state.isLoading)
         if(this.state.isLoading){
             return(
@@ -219,44 +221,17 @@ componentWillUnmount(){
         // if(this.state.value){
         //     fieldConfig.push(value)
         // }
-
         return(
             <div className="container" style={{fontFamily:'Open Sans'}}>
-            <div><Button type='primary' onClick={this.showModal}  style={{background:'#1890ff' , color:'#fff',marginLeft:'890px'}}>
+            <div><Button type='primary' onClick={this.showModal} 
+             style={{background:'#1890ff' , color:'#fff',marginRight:'16px',marginLeft:'900px'}}
+             className='pull-right'>
             <Icon type="user-add" />ADD USER
                     </Button></div>
-                    
-             <div style={{marginTop:10}}><h1 className='text-center' style={{color:'#313d53'}}><b>USERS</b></h1></div>
-            <div className='container'>
-             <div style={{marginLeft:600,marginBottom:20}}>
-                    <TreeSelect
-                    
-                    style={{ width: 200}}
-                    value={this.state.value}
-                    dropdownStyle={{ maxHeight: 400, overflow: 'auto',background:'#1e8ffa' }}
-                    //placeholder="Select to delete field"
-                    treeDefaultExpandAll
-                    onChange={this.onChange}
-                >
+                   
+                   
+         <div className="pull-right">
                 
-                 {this.state.fieldConfig.map((object, key1)=>
-                <TreeNode  value={object.field} title={object.field} key={key1} />
-                 )}
-
-                </TreeSelect>
-               <Button 
-               style={{marginLeft:'10px' , marginRight:'10px'}}
-               onClick={this.onAdd}>ADD</Button>
-               <Button
-               style={{}}
-               onClick={this.onDelete}>DELETE</Button>                
-                
-                </div>
-            <div>
-                     
-            <div className="pull-right">
-            
-            
             <Modal
             width="1000px"
           visible={this.state.visible}
@@ -269,14 +244,52 @@ componentWillUnmount(){
           <AddUser handleOk={this.handleOk}/>
         </Modal>
 
-            </div>
-            </div>
+            </div>      
+             <div><h1 className='text-center' style={{color:'#313d53'}}><b>USERS</b></h1></div>
+            
+            
+            <div className='container'>
+            {this.state.users.users.length?
+            <div>
+             <div style={{marginLeft:600,marginBottom:20}} className='pull-right'>
+            
+                    <TreeSelect
+                    
+                    style={{ width: 200}}
+                    value={this.state.value}
+                    dropdownStyle={{ maxHeight: 400, overflow: 'auto',background:'#1e8ffa' }}
+                    //placeholder="Select to delete field"
+                    treeDefaultExpandAll
+                    onChange={this.onChange}
+                    
+                    treeData={this.state.fieldConfig.map((object, key1)=>!object.added?
+                           {label:object.field,
+                            value:object.field}:{disabled:true})}
+                    >
+                     </TreeSelect>
+                 {/* {this.state.fieldConfig.map((object, key1)=> {
+                        
+                    if(!object.added){
+                        return <TreeNode  value={object.field} title={object.field} key={key1} />
+                    }
+                    return null
+                 })} */}
+
+                
+               <Button 
+               type='primary'
+               style={{background:'#1890ff' , color:'#fff',marginLeft:'10px'}}
+               onClick={this.onAdd}>ADD</Button>                
+                
+                </div>
+            
             
             <div>
-            {this.state.users.users.length?
+            
             <div>
                 <div className="card-body">
                     <Table 
+                        onDelete={this.onDelete}
                         handleDelete={this.handleDelete}
                         fieldConfig={this.state.fieldConfig}
                         users={this.state.users.users}
@@ -294,11 +307,13 @@ componentWillUnmount(){
                 
                 </div>
                 
-                :<div className="card-body">NO USER FOUND</div>
+                
+                </div>
+            </div>
+                :<div className="card-body"><center><h1><br></br>No Users Found.</h1></center></div>
                 }
                 </div>
                 </div>
-            </div>
             
         )
     }

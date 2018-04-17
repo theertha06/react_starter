@@ -30,10 +30,11 @@ export default class Table extends React.Component{
 
 
             <div className="table-responsive" style={{}}>
-                <table className="table font" style={{width:'800px', marginLeft:'120px',background:"#fff",color:"#000"}}>
+                <table className="table font" style={{background:"#fff",color:"#000"}}>
                         <thead >
                             
                             <Row 
+                            onDelete={this.props.onDelete}
                             fieldConfig={this.props.fieldConfig}
                             type='head'/>
                         </thead>
