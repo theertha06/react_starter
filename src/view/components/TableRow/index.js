@@ -59,15 +59,14 @@ let Row = (props)=>{
                 // <td><center><Icon type="delete" onClick={props.handleDelete.bind(this,props.item.id)}/></center></td>
                 //     : 
                 props.enableLink&&
-                <Link className='Link' to={'details/'+props.item._id}><td key={key1}><center>
+                    <td key={key1}><Link className='Link' to={'details/'+props.item._id}><center>
                         {
-                                               
-                        props.item[item1.field]
-                            
+                            props.item[item1.field]
+                           
                         }
                         {!props.enableLink&&props.item[item1.field]}
                         
-                        </center> </td></Link>
+                        </center></Link> </td>
                 
                 
                 :null)}
