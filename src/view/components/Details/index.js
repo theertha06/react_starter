@@ -14,7 +14,7 @@ import { Link } from 'react-router'
 
 import Table from '../Table';
 import Row from '../TableRow'
-import { Pagination,Avatar,Icon } from 'antd';
+import { Pagination,Avatar,Icon ,Breadcrumb} from 'antd';
 
 export default class Details extends React.Component {
 
@@ -92,6 +92,11 @@ export default class Details extends React.Component {
                         className='pull-right'>
                         <Link className='Link' to='home'>&lt;&lt;BACK</Link>
                     </Button>
+                    <Breadcrumb separator=">">
+    <Breadcrumb.Item>User Data</Breadcrumb.Item>
+    <Breadcrumb.Item ><Link className='Menu-Link' to='home'>Users</Link></Breadcrumb.Item>
+    <Breadcrumb.Item><Link className='Menu-Link' to='details'>User Details</Link></Breadcrumb.Item>
+  </Breadcrumb>
                 </h3>
             </div>
               <div style={{}}>  

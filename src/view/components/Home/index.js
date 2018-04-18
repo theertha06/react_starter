@@ -14,7 +14,7 @@ import AddUser from '../AddUser';
 
 import '../../components/index.css'
 
-import { Modal, Button, Icon } from 'antd';
+import { Modal, Button, Icon ,Breadcrumb} from 'antd';
 
 import { Spin } from 'antd';
 
@@ -238,6 +238,7 @@ export default class Home extends React.Component {
         return (
             <div>
             <div ><h3 className='pull-left' style={{paddingLeft:'43px', color: '#313d53', width:'100%',background:'#a6bf7c',paddingTop:'5px' }}>USERS
+            
                 
                     <Button type='primary' onClick={this.showModal}
                         style={{ background: '#7e9b51', color: '#fff',border:'#000',marginBottom:'10px',marginRight:'10px' }}
@@ -245,6 +246,10 @@ export default class Home extends React.Component {
                         <Icon type="user-add" />
                         ADD USER
                     </Button>
+                    <Breadcrumb separator=">">
+    <Breadcrumb.Item>User Data</Breadcrumb.Item>
+    <Breadcrumb.Item ><Link className='Menu-Link' to='home'>Users</Link></Breadcrumb.Item>
+  </Breadcrumb>
                     </h3>
                 </div>
                 <div className="pull-right">
