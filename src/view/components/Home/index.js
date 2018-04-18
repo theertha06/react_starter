@@ -45,14 +45,14 @@ export default class Home extends React.Component {
             // ],
             fieldConfig: [
                 { field: 'id', label: 'ID', added: true },
-                { field: 'first_name', label: 'FIRST NAME', added: false },
-                { field: 'last_name', label: 'LAST NAME', added: false },
-                { field: 'email', label: 'EMAIL', added: false },
-                { field: 'gender', label: 'GENDER', added: false },
-                { field: 'address', label: 'ADDRESS', added: false },
-                { field: 'phone number', label: 'PHONE NUMBER', added: false },
-                { field: 'ip_address', label: 'IP ADDRESS', added: false },
-                { field: 'remove', label: 'REMOVE', added: true },
+                { field: 'first_name', label: 'First Name', added: true },
+                { field: 'last_name', label: 'Last Name', added: true },
+                { field: 'email', label: 'Email ID', added: true },
+                { field: 'gender', label: 'Gender', added: true },
+                { field: 'address', label: 'Address', added: true },
+                { field: 'phone number', label: 'Phone Number', added: true },
+                { field: 'ip_address', label: 'IP Address', added: true },
+                { field: 'remove', label: 'Remove', added: true },
 
             ]
         }
@@ -236,17 +236,17 @@ export default class Home extends React.Component {
         //     fieldConfig.push(value)
         // }
         return (
-            <div className="container" style={{ fontFamily: 'Open Sans' }}>
-                <div>
+            <div>
+            <div ><h3 className='pull-left' style={{paddingLeft:'43px', color: '#313d53', width:'100%',background:'#a6bf7c',paddingTop:'5px' }}>USERS
+                
                     <Button type='primary' onClick={this.showModal}
-                        style={{ background: '#1890ff', color: '#fff', marginRight: '16px', marginLeft: '900px' }}
+                        style={{ background: '#7e9b51', color: '#fff',border:'#000',marginBottom:'10px',marginRight:'10px' }}
                         className='pull-right'>
                         <Icon type="user-add" />
                         ADD USER
                     </Button>
+                    </h3>
                 </div>
-
-
                 <div className="pull-right">
 
                     <Modal
@@ -255,26 +255,24 @@ export default class Home extends React.Component {
                         onOk={this.handleOk}
                         onCancel={this.handleCancel}
                         footer={<div>
-                            <Button type='primary' onClick={this.handleCancel} style={{ background: '#1e8ffa', color: '#fff' }}>CANCEL</Button>
+                            <Button type='primary' onClick={this.handleCancel} style={{ background: '#7e9b51', color: '#fff',border:'#000' }}>CANCEL</Button>
                         </div>}
                     >
                         <AddUser handleOk={this.handleOk} />
                     </Modal>
 
                 </div>
-                <div><h1 className='text-center' style={{ color: '#313d53' }}><b>USERS</b></h1></div>
-
-
-                <div className='container'>
+                <div  style={{ fontFamily: 'Open Sans', paddingLeft:'10px',paddingRight:'10px' }}>
                     {this.state.users.users.length ?
                         <div>
-                            <div style={{ marginLeft: 600, marginBottom: 20 }} className='pull-right'>
+                            <div>
+                            <div style={{ marginLeft: 600, marginBottom: 5 }} className='pull-right'>
 
                                 <TreeSelect
                                     
-                                    style={{ width: 200 }}
+                                    style={{ width: 200,height:10}}
                                     value={this.state.value}
-                                    dropdownStyle={{ maxHeight: 400, overflow: 'auto', background: '#1e8ffa' }}
+                                    dropdownStyle={{ maxHeight: 400, overflow: 'auto', background: '#a6bf7c',position:'relative'}}
                                     //placeholder="Select to delete field"
                                     treeDefaultExpandAll
                                     onChange={this.onChange}
@@ -293,16 +291,18 @@ export default class Home extends React.Component {
 
                                 <Button
                                     type='primary'
-                                    style={{ background: '#1890ff', color: '#fff', marginLeft: '10px' }}
+                                    style={{ background: '#7e9b51', color: '#fff', marginLeft: '10px' ,border:'#000'}}
                                     onClick={this.onAdd}>ADD</Button>
-
+                                
                             </div>
-
-
+                            
+                            </div>
                             <div>
 
                                 <div>
+                                    
                                     <div className="card-body">
+                                    
                                         <Table
                                             onDelete={this.onDelete}
                                             handleDelete={this.handleDelete}
@@ -327,7 +327,7 @@ export default class Home extends React.Component {
                         </div>
                         : <div className="card-body"><center><h1><br></br>No Users Found.</h1></center></div>
                     }
-                </div>
+            </div>
             </div>
 
         )

@@ -33,7 +33,20 @@
 .bgopacity{
     background: rgba(89, 175, 225,0.6)
 }
-
+.ant-menu.ant-menu-dark .ant-menu-item-selected, .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
+    background-color:#7e9b51;
+}
+.table-hover tbody tr:hover {
+    background-color: rgba(166, 191, 124, 0.48);
+}
+::selection {
+    background: #1890ff;
+    color: #fff;
+}
+.ant-pagination-item-active {
+    border-color: #7e9b51;
+    font-weight: 500;
+}
 .tableContainer{
     
     
@@ -41,3 +54,17 @@
     width:90%;
     text-align:left;
 } 
+
+.ant-select-tree-dropdown{
+    top: 211 px !important;
+}
+.Menu-Link {
+    color: #fff;
+}
+.Menu-Link:hover{
+    color: #fff
+}
+.Menu-Link:focus{
+    color: #fff;
+    text-decoration:none
+}

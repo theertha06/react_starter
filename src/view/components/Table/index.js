@@ -29,8 +29,8 @@ export default class Table extends React.Component{
             </div>*/
 
 
-            <div className="table-responsive" style={{}}>
-                <table className="table font" style={{background:"#fff",color:"#000"}}>
+            <div className="table-responsive table-hover" style={{}}>
+                <table className="table font" style={{background:"#fff",color:"#000",border:2,borderTop:'#000'}}>
                         <thead >
                             
                             <Row 

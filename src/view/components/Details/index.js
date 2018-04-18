@@ -14,7 +14,7 @@ import { Link } from 'react-router'
 
 import Table from '../Table';
 import Row from '../TableRow'
-import { Pagination } from 'antd';
+import { Pagination,Avatar,Icon } from 'antd';
 
 export default class Details extends React.Component {
 
@@ -73,54 +73,66 @@ export default class Details extends React.Component {
         }
         console.log('user', this.state.user)
         let fieldConfig = [
-            { field: 'id', label: "ID", isSelected: true },
+            { field: 'id', label: "Id",id:1 },
             //{field:'remove',label:'REMOVE',isSelected:true},
-            { field: 'first_name', label: 'FIRST_NAME', isSelected: true },
-            { field: 'last_name', label: 'LAST_NAME', isSelected: true },
-            { field: 'email', label: 'EMAIL', isSelected: true },
-            { field: 'gender', label: 'GENDER', isSelected: true },
-            { field: 'address', label: 'ADDRESS', isSelected: true },
-            { field: 'phone number', label: 'PHONE_NUMBER', isSelected: true },
-            { field: 'ip_address', label: 'IP_ADDRESS', isSelected: true }
+            { field: 'first_name', label: 'First Name',id:2 },
+            { field: 'last_name', label: 'Last Name',id:3 },
+            { field: 'email', label: 'Email', id:4 },
+            { field: 'gender', label: 'Gender',id:5 },
+            { field: 'address', label: 'Address',id:6 },
+            { field: 'phone number', label: 'Phone Number',id:7},
+            { field: 'ip_address', label: 'IP Address',id:8 }
+        
         ]
         return (
-            <div className='container'>
-                <div className='container'>
-
-                    <Button type='primary' className='pull-left' onClick={this.onSubmit} style={{ background: '#1890ff', color: '#fff', marginTop: 20 }}>
-                        <Link className='Link' to='home'>&lt;&lt;BACK</Link></Button>
+            <div >
+                <div ><h3 className='pull-left' style={{paddingLeft:'43px', color: '#313d53', width:'100%',background:'#a6bf7c',paddingTop:'5px' }}>USER DETAILS
+                <Button type='primary' onClick={this.onSubmit}
+                        style={{ background: '#7e9b51', color: '#fff',border:'#fff',marginBottom:'10px',marginRight:'10px' }}
+                        className='pull-right'>
+                        <Link className='Link' to='home'>&lt;&lt;BACK</Link>
+                    </Button>
+                </h3>
+            </div>
+              <div style={{}}>  
+            <Icon style={{ backgroundColor: '#a6bf7c', fontSize:'117',marginLeft:'61px',color:'#fff' }} type="user" />
+                <div style={{left:'202px',top:'258px',position:'absolute',fontSize:'28',color:'#00'}}>
+                <b>{this.state.user['first_name']}&nbsp;{this.state.user['last_name']}</b>&nbsp;&nbsp;:&nbsp;&nbsp;Profile
                 </div>
-                <br></br><br></br>
-                <h1 style={{ color: '#313d53', paddingLeft: '430px' }}><b>USER DETAILS </b></h1>
-                <div className="table-responsive" style={{ maxWidth: '950px', marginLeft: '70px' }}>
-                    <table className="table" style={{ color: '#000' }} >
+                 <div style={{left:'149px',top:'312px',position:'absolute', fontSize:'16'}}>
+                    <table className="table" style={{ color: '#000',height:'300',background:'#fff' }} >
                         <tbody>
                             {fieldConfig.map((item, key) =>
-                                <tr key={key} style={{ background: '#fff', columnWidth: '100px' }}><td><b><div className='pull-right'>{item.label}</div>
+                                <tr key={key} style={{ background: '#fff'}} ><td><b><div className='pull-left' style={{paddingLeft:"100px"}}>{item.label}</div>
                                 </b>
                                 </td>
-                                    <td>:</td>
-                                    <td style={{ paddingRight: '70px', color: "#000", }}>
-                                        <div className='pull-left'>   {this.state.user[item.field]}</div>
+                                    <td style={{paddingLeft:92}}>:</td>
+                                    <td style={{  color: "#000",paddingRight:"521px",paddingLeft:55}}>
+                                        <div>   {this.state.user[item.field]}</div>
                                     </td>
                                 </tr>)}
 
                         </tbody>
-                        {/* <table className="table table-striped">
-                    <td>
-                    <Row 
-                        fieldConfig={fieldConfig}
-                        type='head'/>
-                    </td>
-                    <td>
-                    <Row 
-                        fieldConfig={fieldConfig}
-                        item={this.state.user}
-                        type='body'/>
-                    </td>*/}
-                    </table>
+                        </table>
+                        
                 </div>
+                {/* <div style={{left:'562px',top:'312px',position:'absolute', fontSize:'16'}}>
+                    <table className="table" style={{ color: '#000', maxWidth:'600',height:'300' }} >
+                        <tbody>
+                            {fieldConfig.map((item, key) =>item.id>=5&&
+                                <tr key={key} style={{ background: '#fff'}} ><td><b><div className='pull-left' style={{paddingLeft: 184}}>{item.label}</div>
+                                </b>
+                                </td>
+                                    <td>:</td>
+                                    <td style={{  color: "#000",paddingRight:"100px"}}>
+                                        <div>   {this.state.user[item.field]}</div>
+                                    </td>
+                                </tr>)}
 
+                        </tbody>
+                        </table>
+                </div> */}
+            </div>
             </div>
         )
     }

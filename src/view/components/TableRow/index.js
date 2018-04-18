@@ -36,13 +36,13 @@ let Row = (props)=>{
     switch (props.type){
         case 'head':
         
-        return <tr  style={{background:'#313d53'}}>{props.fieldConfig.map((item,key)=> 
+        return <tr  style={{background:'#636c727a'}}>{props.fieldConfig.map((item,key)=> 
                 item.added? 
-                <th key={key} style={{color:'#fff', fontSize:"18px"}}><center>
+                <th key={key} style={{color:'#000', fontSize:"14px",scope:"col"}} ><center>
                     {item.label}
                     {item.field!="remove"&&item.field!="id"&&
                     <Icon type="close-square" 
-            style={{marginLeft:5 , cursor:"pointer"}}
+            style={{marginLeft:5 , cursor:"pointer", color:'#fff',background:'#636c727a'}}
         onClick={props.onDelete.bind(this,item.label)}/>} 
         </center></th>:null)}
         </tr>
@@ -54,7 +54,7 @@ let Row = (props)=>{
                   
                 item1.field=='remove'?  
                     props.enableLink&&
-                    <td><center><Icon type="delete" onClick={props.handleDelete.bind(this,props.item.id)}/></center></td>
+                    <td><center><Button onClick={props.handleDelete.bind(this,props.item.id)} style={{ background: '#7e9b51',border:'#000'}}><Icon type="delete" /></Button></center></td>
                 :             
                 // <td><center><Icon type="delete" onClick={props.handleDelete.bind(this,props.item.id)}/></center></td>
                 //     : 

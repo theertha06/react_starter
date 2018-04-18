@@ -14,9 +14,10 @@ import addDataStore from './store/addDataStore';
 import errorStore from '../Home/store/getDataError';
  import loadingStore from '../Home/store/loadingStore';
 
- import { Form, Icon, Input, Button,InputNumber } from 'antd';
+ import { Form, Icon, Input, Button,InputNumber,Radio } from 'antd';
 const FormItem = Form.Item;
 const { TextArea } = Input;
+const RadioGroup = Radio.Group;
 
 export default class AddUser extends React.Component{
 
@@ -103,7 +104,7 @@ render(){
         { field:'first_name',label:'FIRST_NAME',fieldtype:"input",id:2},
         { field:'last_name',label:'LAST_NAME',fieldtype:"input",id:3},
         { field:'email',label:'EMAIL',fieldtype:"input",id:4},
-        { field:'gender',label:'GENDER',fieldtype:"input",id:5},
+        { field:'gender',label:'GENDER',fieldtype:"radio",id:5},
         { field:'address',label:'ADDRESS',fieldtype:"textarea",id:6},
         { field:'phone number',label:'PHONE_NUMBER',fieldtype:"input",id:7},
         { field:'ip_address',label:'IP_ADDRESS',fieldtype:"input",id:8}
@@ -112,12 +113,12 @@ render(){
 
 console.log(this.state.valueMap)
 
-return <div >
-    <div style={{background:'#313d53',height:40,paddingTop:5,marginTop:35}}><h4 className='text-center' style={{color:"#fff"}}>ADD USER</h4></div>
+return <div  style={{background:'#eaebea',paddingBottom:'20'}}>
+    <div style={{background:'#7e9b51',height:40,paddingTop:5,marginTop:35}}><h4 className='text-center' style={{color:"#fff"}}>ADD USER</h4></div>
     
     <div className="container" style={{paddingTop:'10px', paddingBottom:'20px'}}>
   <div className="row">
-    <div className="col" style={{paddingLeft:'90px'}}>
+    <div className="col" style={{paddingLeft:'90px',}}>
     {
         <table ><tbody >{
         fieldConfig.map((item,key)=> item.id<=5?
@@ -138,11 +139,16 @@ return <div >
                     placeholder={"enter "+item.field} 
                     size="default"
                     onChange={this.handleChange.bind(this,item.field)} /></td>
-                :item.fieldtype=='numberinput'?<td>
-                    <InputNumber  
+                :item.fieldtype=='radio'?<td>
+                    <RadioGroup 
                     style={{marginTop:'10px'}}
-                   size="default" 
-                            onChange={this.handleChange.bind(this,item.field)} /></td>
+                     size="default" 
+                     onChange={this.handleChange.bind(this,item.field)}
+                      defaultValue="">
+                           <Radio value={'Male'}>Male</Radio>
+                            <Radio value={'Female'}>Female</Radio>
+                    </RadioGroup> 
+                   </td>
     :null}</tr>:null)}</tbody></table>}</div>
     <div className="col" style={{paddingLeft:'60px'}}>
     {
@@ -178,7 +184,7 @@ return <div >
   
 </div>
     <div><center>
-    <Button type='primary'  onClick={this.onSubmit}  style={{background:'#1e8ffa' , color:'#fff' , marginTop:'20px'}}>SUBMIT</Button>
+    <Button type='primary'  onClick={this.onSubmit}  style={{background:'#7e9b51' , color:'#fff' , marginTop:'20px',border:'#000'}}>SUBMIT</Button>
     {this.state.error&&<div>fill all fields</div>}</center></div>
     </div>
 }
